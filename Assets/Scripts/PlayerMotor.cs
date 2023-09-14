@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 
 public class PlayerMotor : MonoBehaviour
 {
 
     private CharacterController controller;
     private Vector3 playerVelocity;
-    public float speed = 5f;
+    public float speed;
     private bool isGrounded;
-    public float gravity = -9.8f;
-    public float jumpHeight = 3f;
+    private bool isSprinting;
+    [SerializeField] private float gravity = -9.8f;
+    [SerializeField] private float jumpHeight = 3f;
+    [SerializeField] private float sprintSpeed = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +26,9 @@ public class PlayerMotor : MonoBehaviour
     void Update()
     {
         isGrounded = controller.isGrounded;
+
+        speed = isSprinting ? sprintSpeed : 5f;
+
     }
 
     public void ProcessMove(Vector2 input) 
@@ -30,6 +37,7 @@ public class PlayerMotor : MonoBehaviour
         Vector3 moveDirection = Vector3.zero;
         moveDirection.x = input.x;
         moveDirection.z = input.y;
+        
         controller.Move(transform.TransformDirection(moveDirection) * speed * Time.deltaTime);
 
         //Gravity of Player
@@ -40,6 +48,16 @@ public class PlayerMotor : MonoBehaviour
         Debug.Log(playerVelocity.y);
     }
 
+    public void SprintPressed()
+    {
+        isSprinting = true;
+    }
+
+    public void SprintRelease()
+    {
+        isSprinting = false;
+    }
+    
     public void Jump() 
     {
         if(isGrounded)
