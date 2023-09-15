@@ -42,6 +42,11 @@ namespace UI
             _mainMenuUIDocument.rootVisualElement.Q<Button>(QuitButtonName).clicked += () =>
             {
                 Debug.Log("QuitButton clicked");
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+#else 
+                Application.Quit();
+#endif
             };
         }
     }

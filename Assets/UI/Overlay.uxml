@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:VisualElement style="flex-grow: 1;" />
+        <ui:VisualElement style="flex-grow: 1;" />
+        <ui:VisualElement style="flex-grow: 1; justify-content: flex-end; height: 170px; align-self: auto; align-items: auto;">
+            <ui:Label tabindex="-1" text="Ammo " parse-escape-sequences="true" display-tooltip-when-elided="true" name="AmmoCounter" style="flex-direction: row; white-space: normal; -unity-text-align: lower-left; text-overflow: clip;" />
+            <ui:ProgressBar value="22" title="Health" style="flex-wrap: wrap; align-self: flex-start; -unity-background-image-tint-color: rgb(255, 18, 18); -unity-background-scale-mode: stretch-to-fill;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
