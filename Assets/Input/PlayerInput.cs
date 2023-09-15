@@ -71,6 +71,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Interaction"",
+                    ""type"": ""Button"",
+                    ""id"": ""b2c629e4-ae3d-4267-83ce-1155197b932d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -170,6 +179,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SprintRelease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f81c82f4-e16e-4b6c-b6ae-bc6dd2b580bd"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interaction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -701,6 +721,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_OnFoot_Look = m_OnFoot.FindAction("Look", throwIfNotFound: true);
         m_OnFoot_SprintStart = m_OnFoot.FindAction("SprintStart", throwIfNotFound: true);
         m_OnFoot_SprintRelease = m_OnFoot.FindAction("SprintRelease", throwIfNotFound: true);
+        m_OnFoot_Interaction = m_OnFoot.FindAction("Interaction", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -779,6 +800,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_OnFoot_Look;
     private readonly InputAction m_OnFoot_SprintStart;
     private readonly InputAction m_OnFoot_SprintRelease;
+    private readonly InputAction m_OnFoot_Interaction;
     public struct OnFootActions
     {
         private @PlayerInput m_Wrapper;
@@ -788,6 +810,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_OnFoot_Look;
         public InputAction @SprintStart => m_Wrapper.m_OnFoot_SprintStart;
         public InputAction @SprintRelease => m_Wrapper.m_OnFoot_SprintRelease;
+        public InputAction @Interaction => m_Wrapper.m_OnFoot_Interaction;
         public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -812,6 +835,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @SprintRelease.started += instance.OnSprintRelease;
             @SprintRelease.performed += instance.OnSprintRelease;
             @SprintRelease.canceled += instance.OnSprintRelease;
+            @Interaction.started += instance.OnInteraction;
+            @Interaction.performed += instance.OnInteraction;
+            @Interaction.canceled += instance.OnInteraction;
         }
 
         private void UnregisterCallbacks(IOnFootActions instance)
@@ -831,6 +857,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @SprintRelease.started -= instance.OnSprintRelease;
             @SprintRelease.performed -= instance.OnSprintRelease;
             @SprintRelease.canceled -= instance.OnSprintRelease;
+            @Interaction.started -= instance.OnInteraction;
+            @Interaction.performed -= instance.OnInteraction;
+            @Interaction.canceled -= instance.OnInteraction;
         }
 
         public void RemoveCallbacks(IOnFootActions instance)
@@ -973,6 +1002,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnSprintStart(InputAction.CallbackContext context);
         void OnSprintRelease(InputAction.CallbackContext context);
+        void OnInteraction(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
