@@ -10,12 +10,14 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private float distance = 3f;
     [SerializeField] private LayerMask mask;
     private PlayerUI playerUI;
+    private InputManager inputManager;
     
     // Start is called before the first frame update
     void Start()
     {
         camera = GetComponent<PlayerLook>().cam;
         playerUI = GetComponent<PlayerUI>();
+        inputManager = GetComponent<InputManager>();
     }
 
     // Update is called once per frame
@@ -28,9 +30,15 @@ public class PlayerInteract : MonoBehaviour
         bool hit = Physics.Raycast(ray, out hitInfo, mask);
         playerUI.UpdateText(string.Empty);
 
-        if (hit && hitInfo.collider.GetComponent<Interactable>()!= null)
+        if (hit && hitInfo.collider.GetComponent<Interactable>() != null)
         {
+            var interaction = hitInfo.collider.GetComponent<Interactable>();
             playerUI.UpdateText(hitInfo.collider.GetComponent<Interactable>().promptMessage);
+
+            if (inputManager.onFoot.Interaction.triggered)
+            {
+                interaction.BasicInteract();   
+            }
         }
     }
 }
