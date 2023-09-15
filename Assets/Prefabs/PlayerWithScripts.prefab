@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 1140975212265112416}
   - component: {fileID: 8338418955556407403}
   - component: {fileID: 6436667575072634567}
+  - component: {fileID: 5640817943252152952}
   m_Layer: 0
   m_Name: PlayerWithScripts
   m_TagString: Untagged
@@ -262,6 +263,14 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!81 &5640817943252152952
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2258649058791010859}
+  m_Enabled: 1
 --- !u!1 &5688042307703698545
 GameObject:
   m_ObjectHideFlags: 0
