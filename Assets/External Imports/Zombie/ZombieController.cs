@@ -39,4 +39,8 @@ public class ZombieController : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
     }
+
+    private void AttackTarget() {
+        
+    }
 }
