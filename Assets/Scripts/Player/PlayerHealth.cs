@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
 
     private float health;
     private float lerpTimer;
+    private BoxCollider zombie;
     public float maxHealth = 100;
     public float chipSpeed = 2f;
     public Image frontHealthBar;
@@ -26,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         health = Mathf.Clamp(health, 0, maxHealth);
+        Debug.Log(health);
         UpdateHealthUI();
         
         if (Input.GetKeyDown(KeyCode.L))
