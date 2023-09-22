@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class ZombieController : MonoBehaviour {
     private NavMeshAgent agent = null;
     private Animator animator = null;
-    [SerializeField] private Transform target;
+    [SerializeField] internal Transform target;
 
     private void Start() {
         GetReferences();
@@ -38,5 +38,9 @@ public class ZombieController : MonoBehaviour {
     private void GetReferences() {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
+    }
+
+    private void AttackTarget() {
+        
     }
 }
