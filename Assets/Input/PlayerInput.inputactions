@@ -2,7 +2,7 @@
     "name": "PlayerInput",
     "maps": [
         {
-            "name": "OnFoot",
+            "name": "Player",
             "id": "20e80db9-bf2c-4ae7-8186-b7baa98edc42",
             "actions": [
                 {
@@ -62,7 +62,7 @@
                 {
                     "name": "AimingPressed",
                     "type": "Button",
-                    "id": "c0965007-25d7-4c26-a33a-18bf54b2a0d4",
+                    "id": "071c5c49-b547-4e8c-a204-6f9a84dd503b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -71,7 +71,25 @@
                 {
                     "name": "AimingReleased",
                     "type": "Button",
-                    "id": "43bd8de0-eac4-47f7-8fc9-048833004cd6",
+                    "id": "3d8d3aed-3697-4fe9-bf99-2fba82c4b8db",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "FirePressed",
+                    "type": "Button",
+                    "id": "8d8404aa-4d75-4ea4-811d-ed60b5660e06",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "FireReleased",
+                    "type": "Button",
+                    "id": "6f241492-0eea-4878-b1af-7d6c52a2aa8c",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -191,7 +209,7 @@
                 },
                 {
                     "name": "",
-                    "id": "b30adc5b-da3d-4bb6-a6be-97f1000a25ac",
+                    "id": "fe5414e5-daea-4f00-975c-e35e5acf726b",
                     "path": "<Mouse>/rightButton",
                     "interactions": "Press",
                     "processors": "",
@@ -202,12 +220,34 @@
                 },
                 {
                     "name": "",
-                    "id": "42cde661-070d-43a7-ab2b-0278528f3e25",
+                    "id": "a1bd0ac7-054d-4f4f-8459-06d4ca32aca4",
                     "path": "<Mouse>/rightButton",
                     "interactions": "Press(behavior=1)",
                     "processors": "",
                     "groups": "",
                     "action": "AimingReleased",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dc73c317-0d31-4136-bf75-873ecfb806c6",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FirePressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6b6f7bfe-c11e-44b6-8951-7cc6967c054a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FireReleased",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

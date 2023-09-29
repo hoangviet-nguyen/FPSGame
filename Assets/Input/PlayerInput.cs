@@ -24,7 +24,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     ""name"": ""PlayerInput"",
     ""maps"": [
         {
-            ""name"": ""OnFoot"",
+            ""name"": ""Player"",
             ""id"": ""20e80db9-bf2c-4ae7-8186-b7baa98edc42"",
             ""actions"": [
                 {
@@ -84,7 +84,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""AimingPressed"",
                     ""type"": ""Button"",
-                    ""id"": ""c0965007-25d7-4c26-a33a-18bf54b2a0d4"",
+                    ""id"": ""071c5c49-b547-4e8c-a204-6f9a84dd503b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -93,7 +93,25 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""AimingReleased"",
                     ""type"": ""Button"",
-                    ""id"": ""43bd8de0-eac4-47f7-8fc9-048833004cd6"",
+                    ""id"": ""3d8d3aed-3697-4fe9-bf99-2fba82c4b8db"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FirePressed"",
+                    ""type"": ""Button"",
+                    ""id"": ""8d8404aa-4d75-4ea4-811d-ed60b5660e06"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FireReleased"",
+                    ""type"": ""Button"",
+                    ""id"": ""6f241492-0eea-4878-b1af-7d6c52a2aa8c"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -213,7 +231,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b30adc5b-da3d-4bb6-a6be-97f1000a25ac"",
+                    ""id"": ""fe5414e5-daea-4f00-975c-e35e5acf726b"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": ""Press"",
                     ""processors"": """",
@@ -224,12 +242,34 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""42cde661-070d-43a7-ab2b-0278528f3e25"",
+                    ""id"": ""a1bd0ac7-054d-4f4f-8459-06d4ca32aca4"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""AimingReleased"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dc73c317-0d31-4136-bf75-873ecfb806c6"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FirePressed"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6b6f7bfe-c11e-44b6-8951-7cc6967c054a"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FireReleased"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -754,16 +794,18 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     ],
     ""controlSchemes"": []
 }");
-        // OnFoot
-        m_OnFoot = asset.FindActionMap("OnFoot", throwIfNotFound: true);
-        m_OnFoot_Movement = m_OnFoot.FindAction("Movement", throwIfNotFound: true);
-        m_OnFoot_Jump = m_OnFoot.FindAction("Jump", throwIfNotFound: true);
-        m_OnFoot_Look = m_OnFoot.FindAction("Look", throwIfNotFound: true);
-        m_OnFoot_SprintStart = m_OnFoot.FindAction("SprintStart", throwIfNotFound: true);
-        m_OnFoot_SprintRelease = m_OnFoot.FindAction("SprintRelease", throwIfNotFound: true);
-        m_OnFoot_Interaction = m_OnFoot.FindAction("Interaction", throwIfNotFound: true);
-        m_OnFoot_AimingPressed = m_OnFoot.FindAction("AimingPressed", throwIfNotFound: true);
-        m_OnFoot_AimingReleased = m_OnFoot.FindAction("AimingReleased", throwIfNotFound: true);
+        // Player
+        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
+        m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_SprintStart = m_Player.FindAction("SprintStart", throwIfNotFound: true);
+        m_Player_SprintRelease = m_Player.FindAction("SprintRelease", throwIfNotFound: true);
+        m_Player_Interaction = m_Player.FindAction("Interaction", throwIfNotFound: true);
+        m_Player_AimingPressed = m_Player.FindAction("AimingPressed", throwIfNotFound: true);
+        m_Player_AimingReleased = m_Player.FindAction("AimingReleased", throwIfNotFound: true);
+        m_Player_FirePressed = m_Player.FindAction("FirePressed", throwIfNotFound: true);
+        m_Player_FireReleased = m_Player.FindAction("FireReleased", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -834,38 +876,42 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // OnFoot
-    private readonly InputActionMap m_OnFoot;
-    private List<IOnFootActions> m_OnFootActionsCallbackInterfaces = new List<IOnFootActions>();
-    private readonly InputAction m_OnFoot_Movement;
-    private readonly InputAction m_OnFoot_Jump;
-    private readonly InputAction m_OnFoot_Look;
-    private readonly InputAction m_OnFoot_SprintStart;
-    private readonly InputAction m_OnFoot_SprintRelease;
-    private readonly InputAction m_OnFoot_Interaction;
-    private readonly InputAction m_OnFoot_AimingPressed;
-    private readonly InputAction m_OnFoot_AimingReleased;
-    public struct OnFootActions
+    // Player
+    private readonly InputActionMap m_Player;
+    private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
+    private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_SprintStart;
+    private readonly InputAction m_Player_SprintRelease;
+    private readonly InputAction m_Player_Interaction;
+    private readonly InputAction m_Player_AimingPressed;
+    private readonly InputAction m_Player_AimingReleased;
+    private readonly InputAction m_Player_FirePressed;
+    private readonly InputAction m_Player_FireReleased;
+    public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
-        public OnFootActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_OnFoot_Movement;
-        public InputAction @Jump => m_Wrapper.m_OnFoot_Jump;
-        public InputAction @Look => m_Wrapper.m_OnFoot_Look;
-        public InputAction @SprintStart => m_Wrapper.m_OnFoot_SprintStart;
-        public InputAction @SprintRelease => m_Wrapper.m_OnFoot_SprintRelease;
-        public InputAction @Interaction => m_Wrapper.m_OnFoot_Interaction;
-        public InputAction @AimingPressed => m_Wrapper.m_OnFoot_AimingPressed;
-        public InputAction @AimingReleased => m_Wrapper.m_OnFoot_AimingReleased;
-        public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
+        public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @SprintStart => m_Wrapper.m_Player_SprintStart;
+        public InputAction @SprintRelease => m_Wrapper.m_Player_SprintRelease;
+        public InputAction @Interaction => m_Wrapper.m_Player_Interaction;
+        public InputAction @AimingPressed => m_Wrapper.m_Player_AimingPressed;
+        public InputAction @AimingReleased => m_Wrapper.m_Player_AimingReleased;
+        public InputAction @FirePressed => m_Wrapper.m_Player_FirePressed;
+        public InputAction @FireReleased => m_Wrapper.m_Player_FireReleased;
+        public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(OnFootActions set) { return set.Get(); }
-        public void AddCallbacks(IOnFootActions instance)
+        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayerActions instance)
         {
-            if (instance == null || m_Wrapper.m_OnFootActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_OnFootActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
@@ -890,9 +936,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @AimingReleased.started += instance.OnAimingReleased;
             @AimingReleased.performed += instance.OnAimingReleased;
             @AimingReleased.canceled += instance.OnAimingReleased;
+            @FirePressed.started += instance.OnFirePressed;
+            @FirePressed.performed += instance.OnFirePressed;
+            @FirePressed.canceled += instance.OnFirePressed;
+            @FireReleased.started += instance.OnFireReleased;
+            @FireReleased.performed += instance.OnFireReleased;
+            @FireReleased.canceled += instance.OnFireReleased;
         }
 
-        private void UnregisterCallbacks(IOnFootActions instance)
+        private void UnregisterCallbacks(IPlayerActions instance)
         {
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
@@ -918,23 +970,29 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @AimingReleased.started -= instance.OnAimingReleased;
             @AimingReleased.performed -= instance.OnAimingReleased;
             @AimingReleased.canceled -= instance.OnAimingReleased;
+            @FirePressed.started -= instance.OnFirePressed;
+            @FirePressed.performed -= instance.OnFirePressed;
+            @FirePressed.canceled -= instance.OnFirePressed;
+            @FireReleased.started -= instance.OnFireReleased;
+            @FireReleased.performed -= instance.OnFireReleased;
+            @FireReleased.canceled -= instance.OnFireReleased;
         }
 
-        public void RemoveCallbacks(IOnFootActions instance)
+        public void RemoveCallbacks(IPlayerActions instance)
         {
-            if (m_Wrapper.m_OnFootActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_PlayerActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IOnFootActions instance)
+        public void SetCallbacks(IPlayerActions instance)
         {
-            foreach (var item in m_Wrapper.m_OnFootActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_PlayerActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_OnFootActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_PlayerActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public OnFootActions @OnFoot => new OnFootActions(this);
+    public PlayerActions @Player => new PlayerActions(this);
 
     // UI
     private readonly InputActionMap m_UI;
@@ -1053,7 +1111,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
-    public interface IOnFootActions
+    public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
@@ -1063,6 +1121,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnInteraction(InputAction.CallbackContext context);
         void OnAimingPressed(InputAction.CallbackContext context);
         void OnAimingReleased(InputAction.CallbackContext context);
+        void OnFirePressed(InputAction.CallbackContext context);
+        void OnFireReleased(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

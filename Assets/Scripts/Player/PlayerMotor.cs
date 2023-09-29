@@ -38,13 +38,15 @@ public class PlayerMotor : MonoBehaviour
         cameraRotation = cameraHolder.localRotation.eulerAngles;
         characterRotation = transform.localRotation.eulerAngles;
         
-        playerInput.OnFoot.Jump.performed += ctx => Jump();
-        playerInput.OnFoot.SprintStart.performed += ctx => SprintPressed();
-        playerInput.OnFoot.SprintRelease.performed += ctx => SprintRelease();
+        playerInput.Player.Jump.performed += ctx => Jump();
+        playerInput.Player.SprintStart.performed += ctx => SprintPressed();
+        playerInput.Player.SprintRelease.performed += ctx => SprintRelease();
         
         //Weapon Init;
-        playerInput.OnFoot.AimingPressed.performed += e => AimingPressed();
-        playerInput.OnFoot.AimingReleased.performed += e => AimingReleased();
+        playerInput.Player.AimingPressed.performed += e => AimingPressed();
+        playerInput.Player.AimingReleased.performed += e => AimingReleased();
+        playerInput.Player.FirePressed.performed += e => IsShooting();
+        playerInput.Player.FireReleased.performed += e => ShootingReleased();
         
         if (weapon)
         { 
@@ -63,8 +65,8 @@ public class PlayerMotor : MonoBehaviour
 
     private void Update()
     {
-        inputMovement = playerInput.OnFoot.Movement.ReadValue<Vector2>();
-        inputView = playerInput.OnFoot.Look.ReadValue<Vector2>();
+        inputMovement = playerInput.Player.Movement.ReadValue<Vector2>();
+        inputView = playerInput.Player.Look.ReadValue<Vector2>();
         ProcessLook();
         ProcessMove();
         CalculateAimingIn();
@@ -108,9 +110,21 @@ public class PlayerMotor : MonoBehaviour
         {
             return;
         }
-
         weapon.isAiming = isAiming;
     }
+
+    #region Shooting
+
+    public void IsShooting()
+    {
+        weapon.isShooting = true;
+    }
+
+    public void ShootingReleased()
+    {
+        weapon.isShooting = false;
+    }
+    #endregion
     
 
     #endregion
@@ -154,12 +168,12 @@ public class PlayerMotor : MonoBehaviour
     
     private void OnEnable()
     {
-        playerInput.OnFoot.Enable();
+        playerInput.Player.Enable();
     }
 
     private void OnDisable() 
     {
-        playerInput.OnFoot.Disable();
+        playerInput.Player.Disable();
     }
 
     public PlayerInput getPlayerInput()
