@@ -6,18 +6,18 @@ using UnityEngine.Search;
 public class PlayerInteract : MonoBehaviour
 {
 
-    private Camera camera;
+    public Camera camera;
     [SerializeField] private float distance = 3f;
     [SerializeField] private LayerMask mask;
     private PlayerUI playerUI;
-    private InputManager inputManager;
+    private PlayerMotor _motor;
     
     // Start is called before the first frame update
     void Start()
     {
-        camera = GetComponent<PlayerLook>().cam;
         playerUI = GetComponent<PlayerUI>();
-        inputManager = GetComponent<InputManager>();
+        _motor = GetComponent<PlayerMotor>();
+
     }
 
     // Update is called once per frame
@@ -35,7 +35,7 @@ public class PlayerInteract : MonoBehaviour
             var interaction = hitInfo.collider.GetComponent<Interactable>();
             playerUI.UpdateText(hitInfo.collider.GetComponent<Interactable>().promptMessage);
 
-            if (inputManager.onFoot.Interaction.triggered)
+            if (_motor.getPlayerInput().OnFoot.Interaction.triggered)
             {
                 interaction.BasicInteract();   
             }

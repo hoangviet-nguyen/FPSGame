@@ -80,6 +80,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AimingPressed"",
+                    ""type"": ""Button"",
+                    ""id"": ""c0965007-25d7-4c26-a33a-18bf54b2a0d4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AimingReleased"",
+                    ""type"": ""Button"",
+                    ""id"": ""43bd8de0-eac4-47f7-8fc9-048833004cd6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -190,6 +208,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interaction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b30adc5b-da3d-4bb6-a6be-97f1000a25ac"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimingPressed"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""42cde661-070d-43a7-ab2b-0278528f3e25"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": ""Press(behavior=1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AimingReleased"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -722,6 +762,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_OnFoot_SprintStart = m_OnFoot.FindAction("SprintStart", throwIfNotFound: true);
         m_OnFoot_SprintRelease = m_OnFoot.FindAction("SprintRelease", throwIfNotFound: true);
         m_OnFoot_Interaction = m_OnFoot.FindAction("Interaction", throwIfNotFound: true);
+        m_OnFoot_AimingPressed = m_OnFoot.FindAction("AimingPressed", throwIfNotFound: true);
+        m_OnFoot_AimingReleased = m_OnFoot.FindAction("AimingReleased", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -801,6 +843,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_OnFoot_SprintStart;
     private readonly InputAction m_OnFoot_SprintRelease;
     private readonly InputAction m_OnFoot_Interaction;
+    private readonly InputAction m_OnFoot_AimingPressed;
+    private readonly InputAction m_OnFoot_AimingReleased;
     public struct OnFootActions
     {
         private @PlayerInput m_Wrapper;
@@ -811,6 +855,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @SprintStart => m_Wrapper.m_OnFoot_SprintStart;
         public InputAction @SprintRelease => m_Wrapper.m_OnFoot_SprintRelease;
         public InputAction @Interaction => m_Wrapper.m_OnFoot_Interaction;
+        public InputAction @AimingPressed => m_Wrapper.m_OnFoot_AimingPressed;
+        public InputAction @AimingReleased => m_Wrapper.m_OnFoot_AimingReleased;
         public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -838,6 +884,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Interaction.started += instance.OnInteraction;
             @Interaction.performed += instance.OnInteraction;
             @Interaction.canceled += instance.OnInteraction;
+            @AimingPressed.started += instance.OnAimingPressed;
+            @AimingPressed.performed += instance.OnAimingPressed;
+            @AimingPressed.canceled += instance.OnAimingPressed;
+            @AimingReleased.started += instance.OnAimingReleased;
+            @AimingReleased.performed += instance.OnAimingReleased;
+            @AimingReleased.canceled += instance.OnAimingReleased;
         }
 
         private void UnregisterCallbacks(IOnFootActions instance)
@@ -860,6 +912,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Interaction.started -= instance.OnInteraction;
             @Interaction.performed -= instance.OnInteraction;
             @Interaction.canceled -= instance.OnInteraction;
+            @AimingPressed.started -= instance.OnAimingPressed;
+            @AimingPressed.performed -= instance.OnAimingPressed;
+            @AimingPressed.canceled -= instance.OnAimingPressed;
+            @AimingReleased.started -= instance.OnAimingReleased;
+            @AimingReleased.performed -= instance.OnAimingReleased;
+            @AimingReleased.canceled -= instance.OnAimingReleased;
         }
 
         public void RemoveCallbacks(IOnFootActions instance)
@@ -1003,6 +1061,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnSprintStart(InputAction.CallbackContext context);
         void OnSprintRelease(InputAction.CallbackContext context);
         void OnInteraction(InputAction.CallbackContext context);
+        void OnAimingPressed(InputAction.CallbackContext context);
+        void OnAimingReleased(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

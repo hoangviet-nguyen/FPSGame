@@ -27,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         health = Mathf.Clamp(health, 0, maxHealth);
-        Debug.Log(health);
+        //Debug.Log(health);
         UpdateHealthUI();
         
         if (Input.GetKeyDown(KeyCode.L))
@@ -71,7 +71,7 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= damage;
         lerpTimer = 0f;
-        Debug.Log("damage");
+        //Debug.Log("damage");
     }
 
     public void HealDamage(float heal)
