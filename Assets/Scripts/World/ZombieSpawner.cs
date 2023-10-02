@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace World
@@ -10,8 +11,9 @@ namespace World
         [SerializeField] private GameObject zombiePrefab;
         [SerializeField] private float maxDistance = 20f;
         [SerializeField] private float spawnDelay = 3f;
-        [SerializeField] private int zombiesPerWave = 50;
-        [SerializeField] private int maxZombiesAlive = 20;
+        [SerializeField] private int zombiesPerWave = 5;
+        [SerializeField] private int maxZombiesAlive = 3;
+        [SerializeField] private TMP_Text waveText;
 
         private List<Vector3> spawnPoints = new List<Vector3>();
         private List<GameObject> spawnedZombies = new List<GameObject>();
@@ -24,6 +26,7 @@ namespace World
             AddSpawnPoints();
             zombiesRemainingInWave = zombiesPerWave;
             StartCoroutine(SpawnZombiesWithDelay());
+            waveText.text = "Wave " + currentWave;
         }
 
         void AddSpawnPoints()
@@ -50,13 +53,18 @@ namespace World
             {
                 if (zombiesRemainingInWave <= 0)
                 {
+                    //wait 5 seconds before starting the next wave
+                    yield return new WaitForSeconds(5f);
                     currentWave++;
                     zombiesPerWave = currentWave + 5;
+                    waveText.text = "Wave " + currentWave + "\n (" + spawnedZombies.Count + " alive)";
                     zombiesRemainingInWave = zombiesPerWave;
+                    Debug.Log("Wave " + currentWave + " started!");
                 }
 
                 if (spawnedZombies.Count < maxZombiesAlive)
-                {
+                {   
+                    Debug.Log("Spawning a zombie...");
                     Vector3 closestSpawnPoint = Vector3.zero;
                     float closestDistance = maxDistance;
 
@@ -74,6 +82,7 @@ namespace World
                     {
                         GameObject newZombie = SpawnZombie(closestSpawnPoint);
                         zombiesRemainingInWave--;
+                        waveText.text = "Wave " + currentWave + "\n (" + spawnedZombies.Count + " alive)";
                     }
                 }
 
@@ -95,11 +104,12 @@ namespace World
             return zombie;
         }
 
-        void DespawnZombie(GameObject zombie)
+        public void DespawnZombie(GameObject zombie)
         {
             //Sobald implementiert soll beim Tod eines Zombies diese Methode aufgerufen werden
             spawnedZombies.Remove(zombie);
             Destroy(zombie);
         }
+
     }
 }

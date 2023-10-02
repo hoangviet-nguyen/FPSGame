@@ -49,8 +49,6 @@ public class ZombieController : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
         stats = GetComponent<ZombieStats>();
-        //playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
-        //find playerhealth from tagged player
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
     }
 }

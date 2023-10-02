@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SpawnPoint
   - Zombie
+  - ZombieSpawner
   layers:
   - Default
   - TransparentFX

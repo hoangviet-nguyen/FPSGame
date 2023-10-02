@@ -8,10 +8,16 @@ public class ZombieStats : MonoBehaviour {
     [SerializeField] private float health = 100;
     [SerializeField] public float attackSpeed;
     [SerializeField] public float attackDamage;
+    private ZombieSpawner zombieSpawner;
     private float timeOfLastAttack = 0f;
 
     private bool isDead = false;
-    
+
+    private void Start()
+    {
+        zombieSpawner = GameObject.FindGameObjectWithTag("ZombieSpawner").GetComponent<ZombieSpawner>();
+    }
+
     public void Update() {
         if (health <= 0) {
             Die();
@@ -24,6 +30,7 @@ public class ZombieStats : MonoBehaviour {
     }
 
     private void Die() {
-        Destroy(gameObject);
+        zombieSpawner.DespawnZombie(this.gameObject);
+        Debug.Log("Zombie died");
     }
 }
