@@ -14,7 +14,9 @@ public class WeaponController : MonoBehaviour
     public Animator weaponAnimator;
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
-    [Header("Settings")] public Models.WeaponModel settings;
+    public float bulletSpeed;
+    public LayerMask HitMask;
+    public Models.WeaponModel settings;
     private bool initialize;
     
     
@@ -40,9 +42,7 @@ public class WeaponController : MonoBehaviour
 
     private float swayTime;
     private Vector3 swayPosition;
-
-    [HideInInspector] 
-    public bool isAiming;
+    private bool isAiming;
 
     [Header("Sights")] 
     public Transform sightTarget;
@@ -66,10 +66,20 @@ public class WeaponController : MonoBehaviour
         initialize = true;
     }
 
+    private void Awake()
+    {
+        //Weapon Init;
+        _motor.playerInput.Player.FirePressed.performed += e => IsShooting();
+        _motor.playerInput.Player.FireReleased.performed += e => ShootingReleased();
+        _motor.playerInput.Player.AimingPressed.performed += e => AimingPressed();
+        _motor.playerInput.Player.AimingReleased.performed += e => AimingReleased();
+    }
+
     private void Start() 
     {
         _weaponRotation = transform.localRotation.eulerAngles;
         currentFireType = allowedFireType.First();
+        isShooting = false;
     }
 
     private void Update()
@@ -78,14 +88,13 @@ public class WeaponController : MonoBehaviour
         {
             return;
         }
-        
-        CalculateWeaponRotation();
         SetWeaponAnimations();
         CalculateWeaponSway();
         CalculateAiming();
         CalculateBullet();
     }
 
+    #region Aiming
     private void CalculateAiming()
     {
         var targetPosition = transform.position;
@@ -99,13 +108,18 @@ public class WeaponController : MonoBehaviour
         weaponSwayPosition = Vector3.SmoothDamp(weaponSwayPosition, targetPosition, ref weaponSwayPosition, aimingTime);
         weaponSwayObject.transform.position = weaponSwayPosition;
     }
-    
-    
-    public void TriggerJump(){}
-
-    private void CalculateWeaponRotation()
+    private void AimingPressed()
     {
+        isAiming = true;
     }
+
+    private void AimingReleased()
+    {
+        isAiming = false;
+    }
+    
+    #endregion
+    
     private void SetWeaponAnimations(){}
 
     private void CalculateWeaponSway()
@@ -123,26 +137,44 @@ public class WeaponController : MonoBehaviour
 
     }
 
+    #region Shooting
     private void CalculateBullet()
     {
-        if (isShooting)
+        
+        Ray ray = new Ray(bulletSpawn.position, bulletSpawn.right * 5);
+        Debug.DrawRay(ray.origin, ray.direction);
+        RaycastHit hitInfo; // stores information if something is hit
+        bool hit = Physics.Raycast(ray, out hitInfo);
+        
+        if (hitInfo.collider != null && hitInfo.collider.CompareTag("Zombie"))
         {
-            TapShot();
-            
-            if (currentFireType == Models.WeaponFireType.Pistols)
+            var currentZombie = hitInfo.collider.GetComponent<ZombieStats>();
+            if (isShooting)
             {
-                isShooting = false;
+                TapShot(currentZombie);
             }
         }
+        
+    }
+    public void TapShot(ZombieStats stats)
+    {
+        var bullet = Instantiate(bulletPrefab,bulletSpawn);
+        stats.TakeDamage(5);
+        isShooting = false;
+
+    }
+    
+    public void IsShooting()
+    {
+       isShooting = true;
     }
 
-    public void TapShot()
+    public void ShootingReleased()
     {
-        var bullet = Instantiate(bulletPrefab, bulletSpawn);
-        
-        //Load bullet settings
-        
+      isShooting = false;
     }
+    #endregion
+    
     
     private Vector3 LissajousCurve(float Time, float A, float B)
     {

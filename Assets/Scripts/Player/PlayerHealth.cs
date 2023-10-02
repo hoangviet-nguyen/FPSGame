@@ -27,7 +27,6 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         health = Mathf.Clamp(health, 0, maxHealth);
-        //Debug.Log(health);
         UpdateHealthUI();
         
         if (Input.GetKeyDown(KeyCode.L))
@@ -42,7 +41,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void UpdateHealthUI()
     {
-        Debug.Log(health);
         float fillFront = frontHealthBar.fillAmount;
         float fillBack = backHealthBar.fillAmount;
         float percentComplete = lerpTimer / chipSpeed;

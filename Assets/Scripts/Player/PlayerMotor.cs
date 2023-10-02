@@ -1,5 +1,4 @@
 
-
 using System.Linq;
 using UnityEngine;
 
@@ -7,7 +6,7 @@ public class PlayerMotor : MonoBehaviour
 {
 
     private CharacterController controller;
-    private PlayerInput playerInput;
+    [HideInInspector] public PlayerInput playerInput;
     public float speed;
     private bool isGrounded;
     private bool isSprinting;
@@ -42,11 +41,6 @@ public class PlayerMotor : MonoBehaviour
         playerInput.Player.SprintStart.performed += ctx => SprintPressed();
         playerInput.Player.SprintRelease.performed += ctx => SprintRelease();
         
-        //Weapon Init;
-        playerInput.Player.AimingPressed.performed += e => AimingPressed();
-        playerInput.Player.AimingReleased.performed += e => AimingReleased();
-        playerInput.Player.FirePressed.performed += e => IsShooting();
-        playerInput.Player.FireReleased.performed += e => ShootingReleased();
         
         if (weapon)
         { 
@@ -69,7 +63,6 @@ public class PlayerMotor : MonoBehaviour
         inputView = playerInput.Player.Look.ReadValue<Vector2>();
         ProcessLook();
         ProcessMove();
-        CalculateAimingIn();
     }
 
     
@@ -90,28 +83,7 @@ public class PlayerMotor : MonoBehaviour
     public WeaponController weapon;
     public float weaponAnimationSpeed;
     [HideInInspector] public bool isFalling;
-
-    [Header("Aiming")] 
-    public bool isAiming;
-
-    private void AimingPressed()
-    {
-        isAiming = true;
-    }
-
-    private void AimingReleased()
-    {
-        isAiming = false;
-    }
-
-    private void CalculateAimingIn()
-    {
-        if (!weapon)
-        {
-            return;
-        }
-        weapon.isAiming = isAiming;
-    }
+   
 
     #region Shooting
 

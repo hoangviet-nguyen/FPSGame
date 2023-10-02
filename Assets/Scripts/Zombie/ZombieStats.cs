@@ -5,7 +5,7 @@ using UnityEngine;
 using World;
 
 public class ZombieStats : MonoBehaviour {
-    [SerializeField] private float health;
+    [SerializeField] private float health = 100;
     [SerializeField] public float attackSpeed;
     [SerializeField] public float attackDamage;
     private float timeOfLastAttack = 0f;
@@ -20,6 +20,7 @@ public class ZombieStats : MonoBehaviour {
 
     public void TakeDamage(float damage) {
         health -= damage;
+        Debug.Log(health);
     }
 
     private void Die() {
