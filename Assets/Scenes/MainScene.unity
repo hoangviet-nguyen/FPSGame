@@ -516,22 +516,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3377702226389665313, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 222
-      objectReference: {fileID: 0}
-    - target: {fileID: 3377702226389665313, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1033
-      objectReference: {fileID: 0}
-    - target: {fileID: 4384067070796395967, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 290.76617
-      objectReference: {fileID: 0}
-    - target: {fileID: 4384067070796395967, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1036
-      objectReference: {fileID: 0}
+    - target: {fileID: 661667269820026307, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 2231749890317461448, guid: 497aa064ee09e1b4c83df3cea7c37ff0, type: 3}
     - target: {fileID: 5156935012324273618, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
       propertyPath: m_LocalPosition.x
       value: 136.82677
@@ -575,22 +563,6 @@ PrefabInstance:
     - target: {fileID: 5853522364251720732, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
       propertyPath: m_Name
       value: Complete Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6143091256570354742, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 295.1258
-      objectReference: {fileID: 0}
-    - target: {fileID: 6143091256570354742, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1036
-      objectReference: {fileID: 0}
-    - target: {fileID: 6319793873275846899, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 295.76617
-      objectReference: {fileID: 0}
-    - target: {fileID: 6319793873275846899, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1033
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
