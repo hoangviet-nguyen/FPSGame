@@ -53,7 +53,7 @@ public class WeaponController : MonoBehaviour
     private void Start()
     {
         _weaponRotation = transform.localRotation.eulerAngles;
-        currentFireType = allowedFireType.First();
+       // currentFireType = allowedFireType.First();
         isShooting = false;
         isAiming = false;
     }
