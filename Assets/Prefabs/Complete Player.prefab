@@ -551,6 +551,18 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6864834105078387495, guid: af3cf84b9021e814d9fc64fd16071521, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864834105078387495, guid: af3cf84b9021e814d9fc64fd16071521, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864834105078387495, guid: af3cf84b9021e814d9fc64fd16071521, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 6985366533708138461, guid: af3cf84b9021e814d9fc64fd16071521, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -792,6 +804,14 @@ PrefabInstance:
       propertyPath: weapon
       value: 
       objectReference: {fileID: 661667269820026307}
+    - target: {fileID: 8338418955556407403, guid: 4f0c2e39ff185634197cd831069447da, type: 3}
+      propertyPath: gravity
+      value: -22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338418955556407403, guid: 4f0c2e39ff185634197cd831069447da, type: 3}
+      propertyPath: jumpHeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8338418955556407403, guid: 4f0c2e39ff185634197cd831069447da, type: 3}
       propertyPath: cameraHolder
       value: 

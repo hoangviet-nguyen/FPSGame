@@ -31,14 +31,7 @@ namespace World
 
         void AddSpawnPoints()
         {
-            /*Verschiedene vordefinierte SpawnPoints auf der Map werden zur Liste hinzugefügt
-            spawnPoints.Add(new Vector3(68.8519974f, 5.20200014f, 106.237999f));
-            spawnPoints.Add(new Vector3(68.8519974f, 5.20200014f, 101.059998f));
-            spawnPoints.Add(new Vector3(68.4599991f, 5.57200003f, 92.0899963f));
-            spawnPoints.Add(new Vector3(83.9800034f, 4.57999992f, 106.040001f));
-            spawnPoints.Add(new Vector3(86.1800003f, 4.89099979f, 98.1999969f));
-            spawnPoints.Add(new Vector3(86.1800003f, 5.09000015f, 93.4899979f));
-            */
+
             GameObject[] spawnPointObjects = GameObject.FindGameObjectsWithTag("SpawnPoint");
 
             foreach (GameObject spawnPointObject in spawnPointObjects)
@@ -106,9 +99,10 @@ namespace World
 
         public void DespawnZombie(GameObject zombie)
         {
-            //Sobald implementiert soll beim Tod eines Zombies diese Methode aufgerufen werden
             spawnedZombies.Remove(zombie);
             Destroy(zombie);
+            waveText.text = "Wave " + currentWave + "\n (" + spawnedZombies.Count + " alive)";
+
         }
 
     }

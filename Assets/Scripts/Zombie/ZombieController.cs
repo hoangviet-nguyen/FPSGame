@@ -26,7 +26,7 @@ public class ZombieController : MonoBehaviour {
         RotateToTarget();
         
         float distance = Vector3.Distance(transform.position, target.position);
-            if (distance <= agent.stoppingDistance) {
+            if (distance <= agent.stoppingDistance*1.2) {
                 animator.SetFloat("Speed", 0);
                 if (Time.time >= _timeOfLastAttack + stats.attackSpeed) {
                     _timeOfLastAttack = Time.time;
