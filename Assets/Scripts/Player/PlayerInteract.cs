@@ -21,7 +21,7 @@ public class PlayerInteract : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         //Creating a ray at the center of the camera shooting outwards
         Ray ray = new Ray(camera.transform.position, camera.transform.forward);
@@ -30,7 +30,7 @@ public class PlayerInteract : MonoBehaviour
         bool hit = Physics.Raycast(ray, out hitInfo, mask);
         playerUI.UpdateText(string.Empty);
 
-        if (hit && hitInfo.collider.GetComponent<Interactable>() != null)
+        if ( hit && hitInfo.collider.GetComponent<Interactable>() != null)
         {
             var interaction = hitInfo.collider.GetComponent<Interactable>();
             playerUI.UpdateText(hitInfo.collider.GetComponent<Interactable>().promptMessage);
