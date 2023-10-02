@@ -1,23 +1,18 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using JetBrains.Annotations;
 using UnityEngine;
-using static Models.WeaponModel;
 
 public class WeaponController : MonoBehaviour
 {
     private PlayerMotor _motor;
 
-    [Header("References")] 
-    public Animator weaponAnimator;
+    [Header("References")] public Animator weaponAnimator;
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
-    [Header("Settings")] public Models.WeaponModel settings;
+    public Models.WeaponModel settings;
     private bool initialize;
-    
-    
+
+
     private Vector3 _weaponRotation;
     private Vector3 _rotationVelocity;
 
@@ -26,50 +21,41 @@ public class WeaponController : MonoBehaviour
 
     private Vector3 weaponMovementRotation;
     private Vector3 weaponMovementRotationVelocity;
-
-    public bool isGroundedTrigger;
-
-    public float fallingDelay;
+    
 
     [Header("Weapon Sway")] 
     public Transform weaponSwayObject;
-    public float swayAmountA = 1;
-    public float swayAmountB = 2;
-    public float swayScale = 600;
-    public float swayLerpSpeed = 14;
 
     private float swayTime;
     private Vector3 swayPosition;
 
-    [HideInInspector] 
-    public bool isAiming;
+    [HideInInspector] public bool isAiming;
 
     [Header("Sights")] 
     public Transform sightTarget;
-    public float sightOffset;
     public float aimingTime;
     private Vector3 weaponSwayPosition;
-    
-    [Header("Projectiles")]
-    public float fireRate;
+
+    [Header("Projectiles")] public float fireRate;
     private float currentFireRate;
     public List<Models.WeaponFireType> allowedFireType; //The user can toggle between weapons
     public Models.WeaponFireType currentFireType;
     public bool isShooting;
-    
-    
-    
-    
+
+
+
     public void Initialize(PlayerMotor motor)
     {
         _motor = motor;
         initialize = true;
     }
 
-    private void Start() 
+    private void Start()
     {
         _weaponRotation = transform.localRotation.eulerAngles;
         currentFireType = allowedFireType.First();
+        isShooting = false;
+        isAiming = false;
     }
 
     private void Update()
@@ -79,12 +65,13 @@ public class WeaponController : MonoBehaviour
             return;
         }
         
-        CalculateWeaponRotation();
         SetWeaponAnimations();
         CalculateWeaponSway();
         CalculateAiming();
         CalculateBullet();
     }
+
+    #region Aiming
 
     private void CalculateAiming()
     {
@@ -92,7 +79,8 @@ public class WeaponController : MonoBehaviour
 
         if (isAiming)
         {
-            targetPosition = _motor.cameraHolder.transform.position + (weaponSwayObject.transform.position - sightTarget.transform.position);
+            targetPosition = _motor.cameraHolder.transform.position +
+                             (weaponSwayObject.transform.position - sightTarget.transform.position);
         }
 
         weaponSwayPosition = weaponSwayObject.transform.position;
@@ -100,53 +88,81 @@ public class WeaponController : MonoBehaviour
         weaponSwayObject.transform.position = weaponSwayPosition;
     }
     
-    
-    public void TriggerJump(){}
+    public void AimingPressed()
+    {
+        isAiming = true;
+    }
 
-    private void CalculateWeaponRotation()
+    public void AimingReleased()
+    {
+        isAiming = false;
+    }
+
+    #endregion
+    
+
+    private void SetWeaponAnimations()
     {
     }
-    private void SetWeaponAnimations(){}
 
     private void CalculateWeaponSway()
     {
         targetWeaponRotation.y += settings.SwayAmount * _motor.inputView.x * Time.deltaTime;
         targetWeaponRotation.x += settings.SwayAmount * _motor.inputView.y * Time.deltaTime;
-        
-        
-        targetWeaponRotation = Vector3.SmoothDamp(targetWeaponRotation, new Vector3(0,270,0) , ref targetWeaponRotationVelocity, 
-                                                    settings.SwayResetSmooting);
-        
+
+
+        targetWeaponRotation = Vector3.SmoothDamp(targetWeaponRotation, new Vector3(0, 270, 0),
+            ref targetWeaponRotationVelocity,
+            settings.SwayResetSmooting);
+
         _weaponRotation = Vector3.SmoothDamp(_weaponRotation, targetWeaponRotation, ref _rotationVelocity,
-                                            settings.SwaySmoothing);
+            settings.SwaySmoothing);
         transform.localRotation = Quaternion.Euler(_weaponRotation);
 
     }
 
+    #region Shooting
+
     private void CalculateBullet()
     {
-        if (isShooting)
+        Ray ray = new Ray(bulletSpawn.position, bulletSpawn.right);
+        Debug.DrawRay(ray.origin, ray.direction * 5);
+        RaycastHit hitInfo; // stores information if something is hit
+        bool hit = Physics.Raycast(ray, out hitInfo);
+        
+        if (hitInfo.collider != null && hitInfo.collider.CompareTag("Zombie"))
         {
-            TapShot();
-            
-            if (currentFireType == Models.WeaponFireType.Pistols)
-            {
-                isShooting = false;
-            }
+                var currentZombie = hitInfo.collider.GetComponent<ZombieStats>();
+                if (isShooting)
+                {
+                    TapShot(currentZombie);
+                }
+        }
+        else if (isShooting)
+        {
+            TapShot(new ZombieStats());
         }
     }
 
-    public void TapShot()
+    private void TapShot(ZombieStats zombie)
     {
         var bullet = Instantiate(bulletPrefab, bulletSpawn);
-        
-        //Load bullet settings
-        
+        zombie.TakeDamage(100);
+        isShooting = false;
+
     }
     
-    private Vector3 LissajousCurve(float Time, float A, float B)
+    
+    public void IsShooting()
     {
-        return new Vector3(Mathf.Sin(Time), A * Mathf.Sin(B * Time + Mathf.PI));
+        isShooting = true;
     }
-    
+
+    public void ShootingReleased()
+    {
+       isShooting = false;
+    }
+
+
+    #endregion
 }

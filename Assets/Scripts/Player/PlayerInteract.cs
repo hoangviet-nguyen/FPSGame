@@ -35,7 +35,7 @@ public class PlayerInteract : MonoBehaviour
             var interaction = hitInfo.collider.GetComponent<Interactable>();
             playerUI.UpdateText(hitInfo.collider.GetComponent<Interactable>().promptMessage);
 
-            if (_motor.getPlayerInput().Player.Interaction.triggered)
+            if (_motor.playerInput.Player.Interaction.triggered)
             {
                 interaction.BasicInteract();   
             }

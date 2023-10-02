@@ -7,7 +7,7 @@ public class PlayerMotor : MonoBehaviour
 {
 
     private CharacterController controller;
-    private PlayerInput playerInput;
+    [HideInInspector] public PlayerInput playerInput;
     public float speed;
     private bool isGrounded;
     private bool isSprinting;
@@ -27,6 +27,10 @@ public class PlayerMotor : MonoBehaviour
     [SerializeField] private float xSensivity = 30f;
     [SerializeField] private float ySensivity = 30f;
     [HideInInspector] public Vector2 inputView;
+    
+    [Header("Weapon")] 
+    public WeaponController weapon;
+    public float weaponAnimationSpeed;
 
 
     private void Awake()
@@ -43,10 +47,11 @@ public class PlayerMotor : MonoBehaviour
         playerInput.Player.SprintRelease.performed += ctx => SprintRelease();
         
         //Weapon Init;
-        playerInput.Player.AimingPressed.performed += e => AimingPressed();
-        playerInput.Player.AimingReleased.performed += e => AimingReleased();
-        playerInput.Player.FirePressed.performed += e => IsShooting();
-        playerInput.Player.FireReleased.performed += e => ShootingReleased();
+        playerInput.Player.AimingPressed.performed += e => weapon.AimingPressed();
+        playerInput.Player.AimingReleased.performed += e => weapon.AimingReleased();
+        playerInput.Player.FirePressed.performed += e => weapon.IsShooting();
+        playerInput.Player.FireReleased.performed += e => weapon.ShootingReleased();
+        
         
         if (weapon)
         { 
@@ -69,7 +74,6 @@ public class PlayerMotor : MonoBehaviour
         inputView = playerInput.Player.Look.ReadValue<Vector2>();
         ProcessLook();
         ProcessMove();
-        CalculateAimingIn();
     }
 
     
@@ -83,52 +87,8 @@ public class PlayerMotor : MonoBehaviour
         
         cameraHolder.localRotation = Quaternion.Euler(cameraRotation);
     }
-
-    #region -Weapon-
-
-    [Header("Weapon")] 
-    public WeaponController weapon;
-    public float weaponAnimationSpeed;
-    [HideInInspector] public bool isFalling;
-
-    [Header("Aiming")] 
-    public bool isAiming;
-
-    private void AimingPressed()
-    {
-        isAiming = true;
-    }
-
-    private void AimingReleased()
-    {
-        isAiming = false;
-    }
-
-    private void CalculateAimingIn()
-    {
-        if (!weapon)
-        {
-            return;
-        }
-        weapon.isAiming = isAiming;
-    }
-
-    #region Shooting
-
-    public void IsShooting()
-    {
-        weapon.isShooting = true;
-    }
-
-    public void ShootingReleased()
-    {
-        weapon.isShooting = false;
-    }
-    #endregion
+ 
     
-
-    #endregion
-
     #region - Movement -
     public void SprintPressed()
     {
@@ -174,10 +134,5 @@ public class PlayerMotor : MonoBehaviour
     private void OnDisable() 
     {
         playerInput.Player.Disable();
-    }
-
-    public PlayerInput getPlayerInput()
-    {
-        return playerInput;
     }
 }
