@@ -8,7 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
-    public WeaponController weaponController;
+        public WeaponController weaponController;
 
     private void Start()
     {
