@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class WeaponController : MonoBehaviour
@@ -41,6 +42,9 @@ public class WeaponController : MonoBehaviour
     public List<Models.WeaponFireType> allowedFireType; //The user can toggle between weapons
     public Models.WeaponFireType currentFireType;
     public bool isShooting;
+    public bool hitmarkerShowing;
+    public  GameObject Hitmarker;
+
 
 
 
@@ -56,6 +60,8 @@ public class WeaponController : MonoBehaviour
        // currentFireType = allowedFireType.First();
         isShooting = false;
         isAiming = false;
+        //Hitmarker = GameObject.FindGameObjectWithTag("Hitmarker");
+
     }
 
     private void Update()
@@ -136,6 +142,7 @@ public class WeaponController : MonoBehaviour
                 if (isShooting)
                 {
                     TapShot(currentZombie);
+                    ShowHitmarker();
                 }
         }
         else if (isShooting)
@@ -161,6 +168,25 @@ public class WeaponController : MonoBehaviour
     public void ShootingReleased()
     {
        isShooting = false;
+    }
+    public void ShowHitmarker()
+    {
+        if (hitmarkerShowing)
+        {
+            return;
+        }
+        
+        
+            Hitmarker.SetActive(true);
+            Debug.Log("Hitmarker");
+            hitmarkerShowing = true;
+            Invoke("HideHitmarker", 0.1f);
+        
+    }
+    public void HideHitmarker()
+    {
+        Hitmarker.SetActive(false);
+        hitmarkerShowing = false;
     }
 
 

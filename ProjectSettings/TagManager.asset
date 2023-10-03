@@ -8,6 +8,7 @@ TagManager:
   - Zombie
   - ZombieSpawner
   - EndScreen
+  - Hitmarker
   layers:
   - Default
   - TransparentFX
