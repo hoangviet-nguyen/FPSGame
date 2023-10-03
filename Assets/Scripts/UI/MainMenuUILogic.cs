@@ -6,9 +6,12 @@ namespace UI
 {
     public class MainMenuUILogic : MonoBehaviour
     {
+        private const string LoadoutSelectorName = "LoadoutSelector";
         private const string LevelSelectorName = "LevelSelector";
+        private const string DifficultySelectorName = "DifficultySelector";
+        private const string WaveLengthSelectorName = "LengthSelector";
         private const string StartButtonName = "StartButton";
-        private const string EditCartButtonName = "OptionButton";
+        private const string OptionsButtonName = "OptionButton";
         private const string QuitButtonName = "QuitButton";
 
         private UIDocument _mainMenuUIDocument;
@@ -30,10 +33,15 @@ namespace UI
             {
                 Debug.Log("StartButton clicked");
                 int sceneIndex = _mainMenuUIDocument.rootVisualElement.Q<DropdownField>(LevelSelectorName).index + 1;
+                GameValues.Loadout =
+                    _mainMenuUIDocument.rootVisualElement.Q<DropdownField>(LoadoutSelectorName).index+1;
+                GameValues.Difficulty = _mainMenuUIDocument.rootVisualElement.Q<DropdownField>(DifficultySelectorName)
+                    .index + 1;
+                GameValues.WaveLength = _mainMenuUIDocument.rootVisualElement.Q<DropdownField>(WaveLengthSelectorName).index + 1;
                 UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
             };
 
-            _mainMenuUIDocument.rootVisualElement.Q<Button>(EditCartButtonName).clicked += () =>
+            _mainMenuUIDocument.rootVisualElement.Q<Button>(OptionsButtonName).clicked += () =>
             {
                 Debug.Log("EditButton clicked");
                 UnityEngine.SceneManagement.SceneManager.LoadScene(2);

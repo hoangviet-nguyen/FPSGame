@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using World;
@@ -8,6 +11,10 @@ namespace Zombie {
         private Animator animator;
         [SerializeField] private PlayerHealth playerHealth;
         [SerializeField] internal Transform target;
+        [SerializeField] AudioClip zombieAttack;
+        [SerializeField] AudioClip zombieIdle;
+        private AudioSource audioSource;
+        private GameObject zombie;
         private ZombieStats _stats;
         private float _timeOfLastAttack = 0f;
         private static readonly int Speed = Animator.StringToHash("Speed");
@@ -32,10 +39,13 @@ namespace Zombie {
             }
             
             RotateToTarget();
-        
+            if (audioSource.isPlaying == false) {
+                audioSource.PlayOneShot(zombieIdle);
+            }
             if (distance <= _agent.stoppingDistance*1.2) {
                 animator.SetFloat(Speed, 0);
                 if (Time.time >= _timeOfLastAttack + _stats.attackSpeed) {
+                    audioSource.PlayOneShot(zombieAttack);
                     _timeOfLastAttack = Time.time;
                     animator.SetTrigger(Attack);
                     playerHealth.TakeDamage(_stats.attackDamage);
@@ -55,11 +65,12 @@ namespace Zombie {
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
         }
     
-        private void GetReferences() {
-            _agent = GetComponent<NavMeshAgent>();
-            animator = GetComponent<Animator>();
-            _stats = GetComponent<ZombieStats>();
-            playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-        }
+    private void GetReferences() {
+        _agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+        _stats = GetComponent<ZombieStats>();
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        zombie = this.gameObject;
+        audioSource = GetComponent<AudioSource>();
     }
 }

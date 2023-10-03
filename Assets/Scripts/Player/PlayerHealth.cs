@@ -14,13 +14,13 @@ public class PlayerHealth : MonoBehaviour
     public float chipSpeed = 2f;
     public Image frontHealthBar;
     public Image backHealthBar;
-    
+    public Endscreen endscreen;
     
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
-
+        endscreen = GameObject.Find("EndscreenCanvas").GetComponent<Endscreen>();
     }
 
     // Update is called once per frame
@@ -36,6 +36,12 @@ public class PlayerHealth : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.M))
         {
             HealDamage(20);
+        }
+
+        if (health <= 0)
+        {
+            Debug.Log("Player dead");
+            endscreen.Endgame();
         }
     }
 

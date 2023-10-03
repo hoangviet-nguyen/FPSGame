@@ -9,7 +9,6 @@ public class FogSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //initiate 10 objects of type fog in a circle around the point of x60 y15 z60 with a distance of 40 from the  point
         for (int i = 0; i < 10; i++)
         {
             float x = 60 + Mathf.Cos(i * Mathf.PI / 5) * 50;
