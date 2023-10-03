@@ -9,8 +9,12 @@ public class ZombieController : MonoBehaviour {
     public Animator animator = null;
     [SerializeField] PlayerHealth playerHealth;
     [SerializeField] internal Transform target;
+    [SerializeField] AudioClip zombieAttack;
+    [SerializeField] AudioClip zombieIdle;
     private ZombieStats stats;
     private float _timeOfLastAttack = 0f;
+    private AudioSource audioSource;
+    private GameObject zombie;
 
     private void Start() {
         GetReferences();
@@ -24,11 +28,15 @@ public class ZombieController : MonoBehaviour {
         agent.SetDestination(target.position);
         animator.SetFloat("Speed", 1, 0.3f, Time.deltaTime);
         RotateToTarget();
+        if (audioSource.isPlaying == false) {
+            audioSource.PlayOneShot(zombieIdle);
+        }
         
         float distance = Vector3.Distance(transform.position, target.position);
             if (distance <= agent.stoppingDistance*1.2) {
                 animator.SetFloat("Speed", 0);
                 if (Time.time >= _timeOfLastAttack + stats.attackSpeed) {
+                    audioSource.PlayOneShot(zombieAttack);
                     _timeOfLastAttack = Time.time;
                     animator.SetTrigger("Attack");
                     Debug.Log("Player hit");
@@ -50,5 +58,7 @@ public class ZombieController : MonoBehaviour {
         animator = GetComponentInChildren<Animator>();
         stats = GetComponent<ZombieStats>();
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        zombie = this.gameObject;
+        audioSource = GetComponent<AudioSource>();
     }
 }
