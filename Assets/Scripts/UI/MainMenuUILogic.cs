@@ -8,7 +8,7 @@ namespace UI
     {
         private const string LevelSelectorName = "LevelSelector";
         private const string StartButtonName = "StartButton";
-        private const string EditCartButtonName = "OptionButton";
+        private const string OptionsButtonName = "OptionButton";
         private const string QuitButtonName = "QuitButton";
 
         private UIDocument _mainMenuUIDocument;
@@ -33,7 +33,7 @@ namespace UI
                 UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
             };
 
-            _mainMenuUIDocument.rootVisualElement.Q<Button>(EditCartButtonName).clicked += () =>
+            _mainMenuUIDocument.rootVisualElement.Q<Button>(OptionsButtonName).clicked += () =>
             {
                 Debug.Log("EditButton clicked");
                 UnityEngine.SceneManagement.SceneManager.LoadScene(2);
