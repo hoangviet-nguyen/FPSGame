@@ -147,7 +147,7 @@ public class WeaponController : MonoBehaviour
         }
         else if (isShooting)
         {
-            TapShot(new ZombieStats());
+            var bullet = Instantiate(bulletPrefab, bulletSpawn);
         }
     }
 
