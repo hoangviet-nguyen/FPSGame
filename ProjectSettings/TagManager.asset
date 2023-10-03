@@ -7,6 +7,7 @@ TagManager:
   - SpawnPoint
   - Zombie
   - ZombieSpawner
+  - EndScreen
   layers:
   - Default
   - TransparentFX
