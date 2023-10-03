@@ -11,22 +11,64 @@ namespace World
         [SerializeField] private GameObject zombiePrefab;
         [SerializeField] private float maxDistance = 20f;
         [SerializeField] private float spawnDelay = 3f;
-        [SerializeField] private int zombiesPerWave = 5;
-        [SerializeField] private int maxZombiesAlive = 3;
+        private int _zombiesPerWave = 5;
+        private int _maxZombiesAlive = 3;
         [SerializeField] private TMP_Text waveText;
 
-        private List<Vector3> spawnPoints = new List<Vector3>();
+        private  List<Vector3> _spawnPoints = new List<Vector3>();
         private List<GameObject> spawnedZombies = new List<GameObject>();
-        private int currentWave = 1;
-        private int zombiesRemainingInWave;
+        private int _currentWave = 1;
+        private int _zombiesRemainingInWave;
+        private int _waveLength = 5;
 
         void Start()
         {
             zombiePrefab.GetComponent<ZombieController>().target = player;
             AddSpawnPoints();
-            zombiesRemainingInWave = zombiesPerWave;
+            _zombiesRemainingInWave = _zombiesPerWave;
             StartCoroutine(SpawnZombiesWithDelay());
-            waveText.text = "Wave " + currentWave;
+            waveText.text = "Wave " + _currentWave;
+
+            switch (GameValues.Difficulty)
+            {
+                case 1:
+                    _maxZombiesAlive = 7;
+                    _zombiesPerWave = 15;
+                    break;
+                case 2:
+                    _maxZombiesAlive = 15;
+                    _zombiesPerWave = 35;
+                    break;
+                case 3:
+                    _maxZombiesAlive = 25;
+                    _zombiesPerWave = 50;
+                    break;
+                default:
+                    _maxZombiesAlive = 7;
+                    _zombiesPerWave = 15;
+                    break;
+                    
+            }
+
+            switch (GameValues.WaveLength)
+            {
+                case 1:
+                    _waveLength = 4;
+                    break;
+                case 2:
+                    _waveLength = 7;
+                    break;
+                case 3:
+                    _waveLength = 10;
+                    break;
+                default:
+                    _waveLength = 5;
+                    break;
+            }
+            
+            Debug.Log("Difficulty: " + GameValues.Difficulty);
+            Debug.Log("Wave length: " + GameValues.WaveLength);
+            
         }
 
         void AddSpawnPoints()
@@ -36,7 +78,7 @@ namespace World
 
             foreach (GameObject spawnPointObject in spawnPointObjects)
             {
-                spawnPoints.Add(spawnPointObject.transform.position);
+                _spawnPoints.Add(spawnPointObject.transform.position);
             }
         }
 
@@ -44,24 +86,24 @@ namespace World
         {
             while (true)
             {
-                if (zombiesRemainingInWave <= 0)
+                if (_zombiesRemainingInWave <= 0)
                 {
                     //wait 5 seconds before starting the next wave
                     yield return new WaitForSeconds(5f);
-                    currentWave++;
-                    zombiesPerWave = currentWave + 5;
-                    waveText.text = "Wave " + currentWave + "\n (" + spawnedZombies.Count + " alive)";
-                    zombiesRemainingInWave = zombiesPerWave;
-                    Debug.Log("Wave " + currentWave + " started!");
+                    _currentWave++;
+                    _zombiesPerWave = _currentWave + 5;
+                    waveText.text = "Wave " + _currentWave + "\n (" + spawnedZombies.Count + " alive)";
+                    _zombiesRemainingInWave = _zombiesPerWave;
+                    Debug.Log("Wave " + _currentWave + " started!");
                 }
 
-                if (spawnedZombies.Count < maxZombiesAlive)
+                if (spawnedZombies.Count < _maxZombiesAlive)
                 {   
                     Debug.Log("Spawning a zombie...");
                     Vector3 closestSpawnPoint = Vector3.zero;
                     float closestDistance = maxDistance;
 
-                    foreach (Vector3 spawnPoint in spawnPoints)
+                    foreach (Vector3 spawnPoint in _spawnPoints)
                     {
                         float distanceToPlayer = Vector3.Distance(player.position, spawnPoint);
                         if (distanceToPlayer <= maxDistance && distanceToPlayer < closestDistance)
@@ -71,15 +113,15 @@ namespace World
                         }
                     }
 
-                    if (closestSpawnPoint != Vector3.zero && zombiesRemainingInWave > 0)
+                    if (closestSpawnPoint != Vector3.zero && _zombiesRemainingInWave > 0)
                     {
                         GameObject newZombie = SpawnZombie(closestSpawnPoint);
-                        zombiesRemainingInWave--;
-                        waveText.text = "Wave " + currentWave + "\n (" + spawnedZombies.Count + " alive)";
+                        _zombiesRemainingInWave--;
+                        waveText.text = "Wave " + _currentWave + "\n (" + spawnedZombies.Count + " alive)";
                     }
                 }
 
-                if (currentWave > 5)
+                if (_currentWave >= _waveLength)
                 {
                     Debug.Log("All waves complete.");
                     yield break;
@@ -101,7 +143,7 @@ namespace World
         {
             spawnedZombies.Remove(zombie);
             Destroy(zombie);
-            waveText.text = "Wave " + currentWave + "\n (" + spawnedZombies.Count + " alive)";
+            waveText.text = "Wave " + _currentWave + "\n (" + spawnedZombies.Count + " alive)";
 
         }
 
