@@ -143,6 +143,7 @@ MonoBehaviour:
   attackSpeed: 3
   attackDamage: 25
   zombieDamage: {fileID: 8300000, guid: 8a28fb9c704da5242bbfd29299a70625, type: 3}
+  zombieBlood: {fileID: 8952140011227714533, guid: ef7d8bfbae77ff54ebfa89153da03e0a, type: 3}
 --- !u!82 &4457911352887768746
 AudioSource:
   m_ObjectHideFlags: 0

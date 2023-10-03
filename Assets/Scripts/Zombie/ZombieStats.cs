@@ -9,6 +9,7 @@ public class ZombieStats : MonoBehaviour {
     [SerializeField] public float attackSpeed;
     [SerializeField] public float attackDamage;
     [SerializeField] AudioClip zombieDamage;
+    [SerializeField] ParticleSystem zombieBlood;
     private AudioSource audioSource;
     private ZombieSpawner zombieSpawner;
     private float timeOfLastAttack = 0f;
