@@ -35,12 +35,13 @@ public class WeaponController : MonoBehaviour
     public  GameObject Hitmarker;
     public float damage;
     private bool isFullAuto;
-
+    private ZombieController mockZombie;
     public void Initialize(PlayerMotor motor)
     {
         _motor = motor;
         initialize = true;
         isFullAuto = false;
+        mockZombie = new ZombieController();
     }
 
     private void Start()
@@ -127,18 +128,28 @@ public class WeaponController : MonoBehaviour
         }
         else if (isShooting)
         {
-            Shoot(new ZombieController(), isFullAuto);
+            if (!GetComponent<AudioSource>().isPlaying)
+            {
+                GetComponent<AudioSource>().pitch = fireRate;
+                GetComponent<AudioSource>().PlayOneShot(bulletSound);
+            }
+            isShooting = isFullAuto;
             
         }
     }
 
     private void Shoot(ZombieController zombie, bool isFullAuto)
     {
+       
         if (!GetComponent<AudioSource>().isPlaying)
         {
             GetComponent<AudioSource>().pitch = fireRate;
             GetComponent<AudioSource>().PlayOneShot(bulletSound);
-            zombie.TakeDamage(damage);
+            
+            if( zombie != mockZombie)
+            {
+                zombie.TakeDamage(damage);
+            }
         }
         isShooting = isFullAuto;
     }

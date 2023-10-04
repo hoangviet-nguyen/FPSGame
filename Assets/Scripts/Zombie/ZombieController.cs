@@ -85,7 +85,12 @@ namespace Zombie {
 
         public void TakeDamage(float damage) {
             Debug.Log(health);
-            audioSource.PlayOneShot(zombieDamage);
+            //dont play sound if audio not initialized
+            if (audioSource != null)
+            {
+                audioSource.PlayOneShot(zombieDamage);
+            }
+            
             health -= damage;
             //move navmesh agent away from player
             _agent.Move(transform.forward * -1);
