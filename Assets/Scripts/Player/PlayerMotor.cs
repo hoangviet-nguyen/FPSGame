@@ -64,6 +64,8 @@ public class PlayerMotor : MonoBehaviour
     {
         isGrounded = controller.isGrounded;
         speed = isSprinting ? sprintSpeed : 5f;
+        xSensivity = GameValues.mousesensitivity;
+        ySensivity = GameValues.mousesensitivity;
 
     }
 

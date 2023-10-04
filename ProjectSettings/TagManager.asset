@@ -9,6 +9,7 @@ TagManager:
   - ZombieSpawner
   - EndScreen
   - Hitmarker
+  - MouseSlider
   layers:
   - Default
   - TransparentFX
