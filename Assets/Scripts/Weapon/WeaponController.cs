@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using Zombie;
 
 public class WeaponController : MonoBehaviour
 {
@@ -154,7 +155,7 @@ public class WeaponController : MonoBehaviour
     private void TapShot(ZombieStats zombie)
     {
         var bullet = Instantiate(bulletPrefab, bulletSpawn);
-        zombie.TakeDamage(100);
+        zombie.TakeDamage(30);
         isShooting = false;
 
     }
