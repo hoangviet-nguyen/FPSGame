@@ -10,6 +10,8 @@ namespace World
     {
         [SerializeField] private Transform player;
         [SerializeField] private GameObject zombiePrefab;
+        [SerializeField] private GameObject zombiePrefab2;
+        [SerializeField] private GameObject zombiePrefab3;
         [SerializeField] private float maxDistance = 20f;
         [SerializeField] private float spawnDelay = 3f;
         private int _zombiesPerWave = 5;
@@ -25,6 +27,8 @@ namespace World
         void Start()
         {
             zombiePrefab.GetComponent<ZombieController>().target = player;
+            zombiePrefab2.GetComponent<ZombieController>().target = player;
+            zombiePrefab3.GetComponent<ZombieController>().target = player;
             AddSpawnPoints();
             _zombiesRemainingInWave = _zombiesPerWave;
             StartCoroutine(SpawnZombiesWithDelay());
@@ -134,7 +138,22 @@ namespace World
 
         GameObject SpawnZombie(Vector3 spawnPosition)
         {
+            //randomly choose a zombie prefab
             GameObject zombie = Instantiate(zombiePrefab, spawnPosition, Quaternion.identity);
+            int randomZombie = Random.Range(0, 3);
+            switch (randomZombie)
+            {
+                case 0:
+                    zombie = Instantiate(zombiePrefab, spawnPosition, Quaternion.identity);
+                    break;
+                case 1:
+                    zombie = Instantiate(zombiePrefab2, spawnPosition, Quaternion.identity);
+                    break;
+                case 2:
+                    zombie = Instantiate(zombiePrefab3, spawnPosition, Quaternion.identity);
+                    break;
+            }
+            
             spawnedZombies.Add(zombie);
             Debug.Log("Spawned a zombie at " + spawnPosition + "!");
             return zombie;

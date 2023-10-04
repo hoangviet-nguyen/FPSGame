@@ -1,6 +1,4 @@
 using TMPro;
-using System.Collections;
-using System.Threading;
 using UnityEngine;
 using Zombie;
 
@@ -132,7 +130,7 @@ public class WeaponController : MonoBehaviour
         
         if (hitInfo.collider != null && hitInfo.collider.CompareTag("Zombie"))
         {
-                var currentZombie = hitInfo.collider.GetComponent<ZombieStats>();
+                var currentZombie = hitInfo.collider.GetComponent<ZombieController>();
                 if (isShooting)
                 {
                     ShowHitmarker();
@@ -146,7 +144,7 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    private void TapShot(ZombieStats zombie)
+    private void TapShot(ZombieController zombie)
     {
         if (!GetComponent<AudioSource>().isPlaying)
         {
