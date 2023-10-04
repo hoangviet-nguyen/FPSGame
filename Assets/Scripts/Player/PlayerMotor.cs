@@ -56,7 +56,7 @@ public class PlayerMotor : MonoBehaviour
         playerInput.Player.FireReleased.performed += e => weapons. ForEach(weapon => weapon.ShootingReleased());
         playerInput.Player.WeaponSwitch.performed += e => SwitchWeapon();
         weapons.ForEach(weapon => weapon.Initialize(this));
-        _currentWeapon = Mathf.Clamp(_currentWeapon, 0, weapons.Count() - 1);
+        weapons[0].IsFullAuto(false); weapons[1].IsFullAuto(true);
     }
 
     // Update is called once per frame

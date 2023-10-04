@@ -6,7 +6,7 @@ public class WeaponController : MonoBehaviour
 {
     private PlayerMotor _motor;
 
-    [Header("References")] public Animator weaponAnimator;
+    [Header("References")]
     public AudioClip bulletSound;
     public Transform bulletSpawn;
     public Models.WeaponModel settings;
@@ -19,22 +19,13 @@ public class WeaponController : MonoBehaviour
     private Vector3 targetWeaponRotation;
     private Vector3 targetWeaponRotationVelocity;
 
-    private Vector3 weaponMovementRotation;
-    private Vector3 weaponMovementRotationVelocity;
     
-
     [Header("Weapon Sway")] 
     public Transform weaponSwayObject;
-    private int currentWeapon;
-
-    private float swayTime;
-    private Vector3 swayPosition;
 
     [HideInInspector] public bool isAiming;
-
     [Header("Sights")] 
     public Transform sightTarget;
-    public float aimingTime;
     private Vector3 weaponSwayPosition;
 
     [Header("Projectiles")] public float fireRate;
@@ -42,14 +33,14 @@ public class WeaponController : MonoBehaviour
     public bool isShooting;
     public bool hitmarkerShowing;
     public  GameObject Hitmarker;
-
-
-
+    public float damage;
+    private bool isFullAuto;
 
     public void Initialize(PlayerMotor motor)
     {
         _motor = motor;
         initialize = true;
+        isFullAuto = false;
     }
 
     private void Start()
@@ -57,8 +48,6 @@ public class WeaponController : MonoBehaviour
         _weaponRotation = transform.localRotation.eulerAngles;
         isShooting = false;
         isAiming = false;
-        //Hitmarker = GameObject.FindGameObjectWithTag("Hitmarker");
-
     }
 
     private void FixedUpdate()
@@ -86,7 +75,7 @@ public class WeaponController : MonoBehaviour
         }
 
         weaponSwayPosition = weaponSwayObject.transform.position;
-        weaponSwayPosition = Vector3.SmoothDamp(weaponSwayPosition, targetPosition, ref weaponSwayPosition, aimingTime);
+        weaponSwayPosition = Vector3.SmoothDamp(weaponSwayPosition, targetPosition, ref weaponSwayPosition, 0);
         weaponSwayObject.transform.position = weaponSwayPosition;
     }
     
@@ -127,30 +116,36 @@ public class WeaponController : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction * 5);
         RaycastHit hitInfo; // stores information if something is hit
         bool hit = Physics.Raycast(ray, out hitInfo);
-        
         if (hitInfo.collider != null && hitInfo.collider.CompareTag("Zombie"))
         {
                 var currentZombie = hitInfo.collider.GetComponent<ZombieController>();
                 if (isShooting)
                 {
                     ShowHitmarker();
-                    TapShot(currentZombie);
+                    Shoot(currentZombie, isFullAuto);
                 }
         }
         else if (isShooting)
         {
-            TapShot(new ZombieStats());
+            Shoot(new ZombieController(), isFullAuto);
             
         }
     }
 
-    private void TapShot(ZombieController zombie)
+    private void Shoot(ZombieController zombie, bool isFullAuto)
     {
         if (!GetComponent<AudioSource>().isPlaying)
         {
             GetComponent<AudioSource>().pitch = fireRate;
             GetComponent<AudioSource>().PlayOneShot(bulletSound);
+            zombie.TakeDamage(damage);
         }
+        isShooting = isFullAuto;
+    }
+
+    public void IsFullAuto(bool fullAuto)
+    {
+        isFullAuto = fullAuto;
     }
 
 
@@ -163,7 +158,7 @@ public class WeaponController : MonoBehaviour
     {
        isShooting = false;
     }
-    public void ShowHitmarker()
+    private void ShowHitmarker()
     {
         if (hitmarkerShowing)
         {
@@ -171,18 +166,18 @@ public class WeaponController : MonoBehaviour
         }
         
         
-            Hitmarker.SetActive(true);
-            Debug.Log("Hitmarker");
-            hitmarkerShowing = true;
-            Invoke("HideHitmarker", 0.1f);
+        Hitmarker.SetActive(true);
+        Debug.Log("Hitmarker");
+        hitmarkerShowing = true;
+        Invoke("HideHitmarker", 0.1f);
         
     }
-    public void HideHitmarker()
+    private void HideHitmarker()
     {
         Hitmarker.SetActive(false);
         hitmarkerShowing = false;
     }
-
+    
 
     #endregion
 }
