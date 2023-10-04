@@ -14,9 +14,9 @@ Die Gegner spawnen in immer größeren Wellen. ✔
 
 Die Gegner können sich bewegen und den Spieler angreifen. ✔
 
-Gegner Knockback wenn getroffen
+Gegner Knockback wenn getroffen ✔
 
-verschiedene Gegner Types mit besondere Eigenschaften
+verschiedene Gegner Types mit besondere Eigenschaften ✔
 
 Sounds für Schüsse✔, Treffer und Tod.
 
@@ -24,15 +24,15 @@ BGM für Menü und Spiel. ✔
 
 Counter für Zombie Kills ~~(Der Spieler erhält Punkte für jeden getöteten Gegner.)~~
 
-Spieler startet mit einem Loadout ~~(Der Spieler kann Waffen kaufen und diese dann benutzen.)~~
+Spieler startet mit einem Loadout✔ ~~(Der Spieler kann Waffen kaufen und diese dann benutzen.)~~
 
 
 Scenes:
-MainMenu (✔)
+MainMenu ✔
 Map1
-Map2 (✔)
+Map2 ✔
 Map3
 Overlay/ESCMenu ✔
-Endscreen
+Endscreen ✔
 
 Eigene Animation -> Waffe schiessen, ~~nachladen~~

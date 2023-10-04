@@ -86,6 +86,8 @@ namespace Zombie {
         public void TakeDamage(float damage) {
             audioSource.PlayOneShot(zombieDamage);
             health -= damage;
+            //move navmesh agent away from player
+            _agent.Move(transform.forward * -1);
         }
     }
 }

@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   zombiePrefab: {fileID: 6162850025931458229, guid: 3a83f5f45876deb469ef6fe16cf8aa95, type: 3}
+  zombiePrefab2: {fileID: 6162850025931458229, guid: 3eaee4e17891d0148a75b0cb70f2a494, type: 3}
+  zombiePrefab3: {fileID: 6162850025931458229, guid: 0c590fd4b383e3b45abb0820c0490bb6, type: 3}
   maxDistance: 20
   spawnDelay: 3
   waveText: {fileID: 0}
