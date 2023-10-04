@@ -116,6 +116,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WeaponSwitch"",
+                    ""type"": ""Button"",
+                    ""id"": ""6f499113-3b6b-47a3-8a4f-53f60e3ed041"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -270,6 +279,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""FireReleased"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""088767a7-da72-4470-825e-7705d8e6f2fc"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WeaponSwitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -806,6 +826,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_AimingReleased = m_Player.FindAction("AimingReleased", throwIfNotFound: true);
         m_Player_FirePressed = m_Player.FindAction("FirePressed", throwIfNotFound: true);
         m_Player_FireReleased = m_Player.FindAction("FireReleased", throwIfNotFound: true);
+        m_Player_WeaponSwitch = m_Player.FindAction("WeaponSwitch", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -889,6 +910,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_AimingReleased;
     private readonly InputAction m_Player_FirePressed;
     private readonly InputAction m_Player_FireReleased;
+    private readonly InputAction m_Player_WeaponSwitch;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -903,6 +925,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @AimingReleased => m_Wrapper.m_Player_AimingReleased;
         public InputAction @FirePressed => m_Wrapper.m_Player_FirePressed;
         public InputAction @FireReleased => m_Wrapper.m_Player_FireReleased;
+        public InputAction @WeaponSwitch => m_Wrapper.m_Player_WeaponSwitch;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -942,6 +965,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @FireReleased.started += instance.OnFireReleased;
             @FireReleased.performed += instance.OnFireReleased;
             @FireReleased.canceled += instance.OnFireReleased;
+            @WeaponSwitch.started += instance.OnWeaponSwitch;
+            @WeaponSwitch.performed += instance.OnWeaponSwitch;
+            @WeaponSwitch.canceled += instance.OnWeaponSwitch;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -976,6 +1002,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @FireReleased.started -= instance.OnFireReleased;
             @FireReleased.performed -= instance.OnFireReleased;
             @FireReleased.canceled -= instance.OnFireReleased;
+            @WeaponSwitch.started -= instance.OnWeaponSwitch;
+            @WeaponSwitch.performed -= instance.OnWeaponSwitch;
+            @WeaponSwitch.canceled -= instance.OnWeaponSwitch;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1123,6 +1152,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnAimingReleased(InputAction.CallbackContext context);
         void OnFirePressed(InputAction.CallbackContext context);
         void OnFireReleased(InputAction.CallbackContext context);
+        void OnWeaponSwitch(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

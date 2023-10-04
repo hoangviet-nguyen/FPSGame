@@ -1,6 +1,6 @@
-using System.Collections.Generic;
-using System.Linq;
 using TMPro;
+using System.Collections;
+using System.Threading;
 using UnityEngine;
 using Zombie;
 
@@ -9,7 +9,7 @@ public class WeaponController : MonoBehaviour
     private PlayerMotor _motor;
 
     [Header("References")] public Animator weaponAnimator;
-    public GameObject bulletPrefab;
+    public AudioClip bulletSound;
     public Transform bulletSpawn;
     public Models.WeaponModel settings;
     private bool initialize;
@@ -27,6 +27,7 @@ public class WeaponController : MonoBehaviour
 
     [Header("Weapon Sway")] 
     public Transform weaponSwayObject;
+    private int currentWeapon;
 
     private float swayTime;
     private Vector3 swayPosition;
@@ -40,8 +41,6 @@ public class WeaponController : MonoBehaviour
 
     [Header("Projectiles")] public float fireRate;
     private float currentFireRate;
-    public List<Models.WeaponFireType> allowedFireType; //The user can toggle between weapons
-    public Models.WeaponFireType currentFireType;
     public bool isShooting;
     public bool hitmarkerShowing;
     public  GameObject Hitmarker;
@@ -58,21 +57,19 @@ public class WeaponController : MonoBehaviour
     private void Start()
     {
         _weaponRotation = transform.localRotation.eulerAngles;
-       // currentFireType = allowedFireType.First();
         isShooting = false;
         isAiming = false;
         //Hitmarker = GameObject.FindGameObjectWithTag("Hitmarker");
 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!initialize)
         {
             return;
         }
         
-        SetWeaponAnimations();
         CalculateWeaponSway();
         CalculateAiming();
         CalculateBullet();
@@ -108,17 +105,13 @@ public class WeaponController : MonoBehaviour
     #endregion
     
 
-    private void SetWeaponAnimations()
-    {
-    }
-
     private void CalculateWeaponSway()
     {
         targetWeaponRotation.y += settings.SwayAmount * _motor.inputView.x * Time.deltaTime;
         targetWeaponRotation.x += settings.SwayAmount * _motor.inputView.y * Time.deltaTime;
 
 
-        targetWeaponRotation = Vector3.SmoothDamp(targetWeaponRotation, new Vector3(0, 270, 0),
+        targetWeaponRotation = Vector3.SmoothDamp(targetWeaponRotation, new Vector3(0, 0, 0),
             ref targetWeaponRotationVelocity,
             settings.SwayResetSmooting);
 
@@ -142,25 +135,27 @@ public class WeaponController : MonoBehaviour
                 var currentZombie = hitInfo.collider.GetComponent<ZombieStats>();
                 if (isShooting)
                 {
-                    TapShot(currentZombie);
                     ShowHitmarker();
+                    TapShot(currentZombie);
                 }
         }
         else if (isShooting)
         {
-            var bullet = Instantiate(bulletPrefab, bulletSpawn);
+            TapShot(new ZombieStats());
+            
         }
     }
 
     private void TapShot(ZombieStats zombie)
     {
-        var bullet = Instantiate(bulletPrefab, bulletSpawn);
-        zombie.TakeDamage(30);
-        isShooting = false;
-
+        if (!GetComponent<AudioSource>().isPlaying)
+        {
+            GetComponent<AudioSource>().pitch = fireRate;
+            GetComponent<AudioSource>().PlayOneShot(bulletSound);
+        }
     }
-    
-    
+
+
     public void IsShooting()
     {
         isShooting = true;

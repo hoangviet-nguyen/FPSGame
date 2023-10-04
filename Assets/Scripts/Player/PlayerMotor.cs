@@ -1,6 +1,8 @@
 
 
+using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerMotor : MonoBehaviour
@@ -29,8 +31,9 @@ public class PlayerMotor : MonoBehaviour
     [HideInInspector] public Vector2 inputView;
     
     [Header("Weapon")] 
-    public WeaponController weapon;
+    public List<WeaponController> weapons;
     public float weaponAnimationSpeed;
+    private int _currentWeapon;
 
 
     private void Awake()
@@ -47,17 +50,13 @@ public class PlayerMotor : MonoBehaviour
         playerInput.Player.SprintRelease.performed += ctx => SprintRelease();
         
         //Weapon Init;
-        playerInput.Player.AimingPressed.performed += e => weapon.AimingPressed();
-        playerInput.Player.AimingReleased.performed += e => weapon.AimingReleased();
-        playerInput.Player.FirePressed.performed += e => weapon.IsShooting();
-        playerInput.Player.FireReleased.performed += e => weapon.ShootingReleased();
-        
-        
-        if (weapon)
-        { 
-            weapon.Initialize(this);
-        }
-        
+        playerInput.Player.AimingPressed.performed += e => weapons.ForEach(weapon => weapon.AimingPressed());
+        playerInput.Player.AimingReleased.performed += e => weapons.ForEach(weapon => weapon.AimingReleased());
+        playerInput.Player.FirePressed.performed += e => weapons.ForEach(weapon => weapon.IsShooting());
+        playerInput.Player.FireReleased.performed += e => weapons. ForEach(weapon => weapon.ShootingReleased());
+        playerInput.Player.WeaponSwitch.performed += e => SwitchWeapon();
+        weapons.ForEach(weapon => weapon.Initialize(this));
+        _currentWeapon = Mathf.Clamp(_currentWeapon, 0, weapons.Count() - 1);
     }
 
     // Update is called once per frame
@@ -87,7 +86,17 @@ public class PlayerMotor : MonoBehaviour
         
         cameraHolder.localRotation = Quaternion.Euler(cameraRotation);
     }
- 
+
+    private void SwitchWeapon()
+    {
+        _currentWeapon++;
+        _currentWeapon %= 2;
+        for(var i = 0; i < weapons.Count(); i++ )
+        {
+            weapons[i].gameObject.SetActive(false);
+        }
+        weapons[_currentWeapon].gameObject.SetActive(true);
+    }
     
     #region - Movement -
     public void SprintPressed()
