@@ -13,16 +13,25 @@ namespace Zombie {
         [SerializeField] internal Transform target;
         [SerializeField] AudioClip zombieAttack;
         [SerializeField] AudioClip zombieIdle;
+        [SerializeField] AudioClip zombieDamage;
         private AudioSource audioSource;
-        private GameObject zombie;
-        private ZombieStats _stats;
         private float _timeOfLastAttack = 0f;
         private static readonly int Speed = Animator.StringToHash("Speed");
         private static readonly int Attack = Animator.StringToHash("Attack");
         private ZombieSpawner _zombieSpawner;
         private static readonly int Die1 = Animator.StringToHash("Die1");
+        
+        [SerializeField] public float health;
+        [SerializeField] public float attackSpeed;
+        [SerializeField] public float attackDamage;
+        [SerializeField] ParticleSystem zombieBlood;
+        private float timeOfLastAttack = 0f;
 
-        private void Start() {
+        private bool isDead = false;
+        
+        private void Start()
+        {
+            health = 100;
             GetReferences();
             _zombieSpawner = GameObject.FindGameObjectWithTag("ZombieSpawner").GetComponent<ZombieSpawner>();
         }
@@ -32,7 +41,7 @@ namespace Zombie {
             animator.SetFloat(Speed, 1, 0.3f, Time.deltaTime);
             float distance = Vector3.Distance(transform.position, target.position);
 
-            if (_stats.health <= 0) {
+            if (health <= 0) {
                 _agent.isStopped = true;
                 animator.SetTrigger(Die1);
                 return;
@@ -45,11 +54,12 @@ namespace Zombie {
 
             if (distance <= _agent.stoppingDistance * 1.2) {
                 animator.SetFloat(Speed, 0);
-                if (Time.time >= _timeOfLastAttack + _stats.attackSpeed) {
+                if (Time.time >= _timeOfLastAttack + attackSpeed) {
                     audioSource.PlayOneShot(zombieAttack);
                     _timeOfLastAttack = Time.time;
                     animator.SetTrigger(Attack);
-                    playerHealth.TakeDamage(_stats.attackDamage);
+                    playerHealth.TakeDamage(attackDamage);
+                  
                 }
             }
         }
@@ -69,10 +79,13 @@ namespace Zombie {
         private void GetReferences() {
             _agent = GetComponent<NavMeshAgent>();
             animator = GetComponent<Animator>();
-            _stats = GetComponent<ZombieStats>();
             playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-            zombie = this.gameObject;
             audioSource = GetComponent<AudioSource>();
+        }
+
+        public void TakeDamage(float damage) {
+            audioSource.PlayOneShot(zombieDamage);
+            health -= damage;
         }
     }
 }

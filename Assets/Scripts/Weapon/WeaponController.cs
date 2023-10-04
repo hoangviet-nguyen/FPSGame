@@ -139,7 +139,7 @@ public class WeaponController : MonoBehaviour
         
         if (hitInfo.collider != null && hitInfo.collider.CompareTag("Zombie"))
         {
-                var currentZombie = hitInfo.collider.GetComponent<ZombieStats>();
+                var currentZombie = hitInfo.collider.GetComponent<ZombieController>();
                 if (isShooting)
                 {
                     TapShot(currentZombie);
@@ -152,10 +152,11 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    private void TapShot(ZombieStats zombie)
+    private void TapShot(ZombieController zombie)
     {
         var bullet = Instantiate(bulletPrefab, bulletSpawn);
         zombie.TakeDamage(30);
+        //apply knockback to rigidbody of zombie away from gameobject.this
         isShooting = false;
 
     }

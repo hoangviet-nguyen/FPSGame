@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3294578857899800670}
   - component: {fileID: 4430543515368532158}
   - component: {fileID: 230562391557190838}
-  - component: {fileID: 7833463491378385366}
   - component: {fileID: 5922853867088839069}
   - component: {fileID: 1985732499892883733}
   m_Layer: 0
@@ -127,22 +126,10 @@ MonoBehaviour:
   target: {fileID: 0}
   zombieAttack: {fileID: 8300000, guid: 09f931dc323443d4294e229608ac116f, type: 3}
   zombieIdle: {fileID: 8300000, guid: cdced608ab3774b41851a0695e7aaa1e, type: 3}
---- !u!114 &7833463491378385366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6162850025931458229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35f44d312baedb24483f195c1fffed19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  attackSpeed: 1
-  attackDamage: 15
   zombieDamage: {fileID: 8300000, guid: 8a28fb9c704da5242bbfd29299a70625, type: 3}
+  health: 100
+  attackSpeed: 2
+  attackDamage: 10
   zombieBlood: {fileID: 0}
 --- !u!95 &5922853867088839069
 Animator:
