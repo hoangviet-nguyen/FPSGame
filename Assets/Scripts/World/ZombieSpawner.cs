@@ -129,6 +129,8 @@ namespace World
                 if (_currentWave >= _waveLength)
                 {
                     Debug.Log("All waves complete.");
+                    Endscreen endscreen = GameObject.Find("Endscreen").GetComponent<Endscreen>();
+                    endscreen.EndgameWin();
                     yield break;
                 }
 
@@ -139,7 +141,7 @@ namespace World
         GameObject SpawnZombie(Vector3 spawnPosition)
         {
             //randomly choose a zombie prefab
-            GameObject zombie = Instantiate(zombiePrefab, spawnPosition, Quaternion.identity);
+            GameObject zombie;
             int randomZombie = Random.Range(0, 3);
             switch (randomZombie)
             {
@@ -151,6 +153,9 @@ namespace World
                     break;
                 case 2:
                     zombie = Instantiate(zombiePrefab3, spawnPosition, Quaternion.identity);
+                    break;
+                default:
+                    zombie = Instantiate(zombiePrefab, spawnPosition, Quaternion.identity);
                     break;
             }
             

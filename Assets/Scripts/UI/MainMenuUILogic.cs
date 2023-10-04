@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
 
 namespace UI
 {
@@ -18,6 +19,7 @@ namespace UI
 
         private void OnEnable()
         {
+            Cursor.lockState = CursorLockMode.None;
             _mainMenuUIDocument = GetComponent<UIDocument>();
             if (_mainMenuUIDocument == null)
             {

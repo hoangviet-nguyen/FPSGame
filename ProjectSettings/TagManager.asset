@@ -10,6 +10,7 @@ TagManager:
   - EndScreen
   - Hitmarker
   - MouseSlider
+  - WinScreen
   layers:
   - Default
   - TransparentFX
