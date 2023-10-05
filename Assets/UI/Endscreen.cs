@@ -8,6 +8,7 @@ using UnityEngine.Serialization;
 public class Endscreen : MonoBehaviour
 {
     public  GameObject EndscreenUI;
+    public GameObject WinScreenUI;
     public WeaponController weaponController;
 
     private void Start()
@@ -18,6 +19,8 @@ public class Endscreen : MonoBehaviour
 
     public void Endgame()
     {
+
+        Cursor.lockState = CursorLockMode.None;
         EndscreenUI.SetActive(true);
         Time.timeScale = 0f;
         weaponController.enabled = false;
@@ -36,4 +39,11 @@ public class Endscreen : MonoBehaviour
     }
 
 
+    public void EndgameWin()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        WinScreenUI.SetActive(true);
+        Time.timeScale = 0f;
+        weaponController.enabled = false;
+    }
 }

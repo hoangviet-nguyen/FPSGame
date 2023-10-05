@@ -3,17 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
         public WeaponController weaponController;
+        public Slider mouseSensitivitySlider;
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         weaponController = GameObject.FindGameObjectsWithTag("Player")[0].GetComponentInChildren<WeaponController>();
+        if (GameValues.mousesensitivity == 0) GameValues.mousesensitivity = 15;
+        mouseSensitivitySlider.value = GameValues.mousesensitivity;
         Resume();
+
     }
 
     void Update()
@@ -30,14 +36,18 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        GameValues.mousesensitivity = (int) mouseSensitivitySlider.value;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
         weaponController.enabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Pause()
-    {
+    {   
+        mouseSensitivitySlider.value = GameValues.mousesensitivity;
+        Cursor.lockState = CursorLockMode.None;
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
@@ -56,6 +66,7 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Quitting game...");
         Application.Quit();
     }
+
 
 
 }
