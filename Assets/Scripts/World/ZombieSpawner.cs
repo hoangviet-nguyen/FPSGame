@@ -12,7 +12,6 @@ namespace World
         [SerializeField] private GameObject zombiePrefab;
         [SerializeField] private GameObject zombiePrefab2;
         [SerializeField] private GameObject zombiePrefab3;
-        [SerializeField] private float maxDistance = 20f;
         [SerializeField] private float spawnDelay = 3f;
         private int _zombiesPerWave = 5;
         private int _maxZombiesAlive = 3;
@@ -103,26 +102,21 @@ namespace World
                 }
 
                 if (spawnedZombies.Count < _maxZombiesAlive)
-                {   
+                {
                     Debug.Log("Spawning a zombie...");
-                    Vector3 closestSpawnPoint = Vector3.zero;
-                    float closestDistance = maxDistance;
+                    List<Vector3> closestSpawnPoints = new List<Vector3>(_spawnPoints); // Create a copy of the spawn points list
+                    closestSpawnPoints.Sort((a, b) => Vector3.Distance(player.position, a).CompareTo(Vector3.Distance(player.position, b))); // Sort by distance to player
 
-                    foreach (Vector3 spawnPoint in _spawnPoints)
+                    for (int i = 0; i < Mathf.Min(5, closestSpawnPoints.Count); i++)
                     {
-                        float distanceToPlayer = Vector3.Distance(player.position, spawnPoint);
-                        if (distanceToPlayer <= maxDistance && distanceToPlayer < closestDistance)
+                        Vector3 closestSpawnPoint = closestSpawnPoints[i];
+
+                        if (_zombiesRemainingInWave > 0)
                         {
-                            closestSpawnPoint = spawnPoint;
-                            closestDistance = distanceToPlayer;
+                            GameObject newZombie = SpawnZombie(closestSpawnPoint);
+                            _zombiesRemainingInWave--;
+                            waveText.text = "Wave " + _currentWave + "\n (" + spawnedZombies.Count + " alive)";
                         }
-                    }
-
-                    if (closestSpawnPoint != Vector3.zero && _zombiesRemainingInWave > 0)
-                    {
-                        GameObject newZombie = SpawnZombie(closestSpawnPoint);
-                        _zombiesRemainingInWave--;
-                        waveText.text = "Wave " + _currentWave + "\n (" + spawnedZombies.Count + " alive)";
                     }
                 }
 
@@ -140,7 +134,6 @@ namespace World
 
         GameObject SpawnZombie(Vector3 spawnPosition)
         {
-            //randomly choose a zombie prefab
             GameObject zombie;
             int randomZombie = Random.Range(0, 3);
             switch (randomZombie)
