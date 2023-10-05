@@ -50,7 +50,7 @@ public class WeaponController : MonoBehaviour
         isAiming = false;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (!initialize)
         {
@@ -121,26 +121,25 @@ public class WeaponController : MonoBehaviour
                 var currentZombie = hitInfo.collider.GetComponent<ZombieController>();
                 if (isShooting)
                 {
+                    Shoot(currentZombie);
                     ShowHitmarker();
-                    Shoot(currentZombie, isFullAuto);
                 }
         }
         else if (isShooting)
         {
-            Shoot(new ZombieController(), isFullAuto);
+            Shoot(new ZombieController());
             
         }
     }
 
-    private void Shoot(ZombieController zombie, bool isFullAuto)
+    private void Shoot(ZombieController zombie)
     {
-        if (!GetComponent<AudioSource>().isPlaying)
-        {
-            GetComponent<AudioSource>().pitch = fireRate;
-            GetComponent<AudioSource>().PlayOneShot(bulletSound);
             zombie.TakeDamage(damage);
-        }
-        isShooting = isFullAuto;
+            if (!GetComponent<AudioSource>().isPlaying)
+            {
+                GetComponent<AudioSource>().pitch = fireRate;
+                GetComponent<AudioSource>().PlayOneShot(bulletSound);
+            }
     }
 
     public void IsFullAuto(bool fullAuto)
