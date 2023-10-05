@@ -241,15 +241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f44d312baedb24483f195c1fffed19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  attackSpeed: 0
-  attackDamage: 0
-  zombieDamage: {fileID: 0}
-  zombieBlood: {fileID: 0}
-  audioSource: {fileID: 0}
-  zombieSpawner: {fileID: 0}
-  timeOfLastAttack: 0
-  isDead: 0
 --- !u!1 &589942844
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,6 +505,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1287447293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5853522364251720732, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
+  m_PrefabInstance: {fileID: 5900229759162688188}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &1287447295
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287447293}
+  m_Enabled: 1
 --- !u!1001 &5900229759162688188
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -573,7 +577,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5853522364251720732, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1287447295}
   m_SourcePrefab: {fileID: 100100000, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

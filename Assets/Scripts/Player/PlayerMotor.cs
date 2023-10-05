@@ -70,7 +70,7 @@ public class PlayerMotor : MonoBehaviour
     }
 
     private void Update()
-    {
+    { 
         inputMovement = playerInput.Player.Movement.ReadValue<Vector2>();
         inputView = playerInput.Player.Look.ReadValue<Vector2>();
         ProcessLook();
