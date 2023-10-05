@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using World;
+using Random = UnityEngine.Random;
 
 namespace Zombie {
     public class ZombieController : MonoBehaviour {
@@ -25,7 +26,7 @@ namespace Zombie {
         [SerializeField] public float attackSpeed;
         [SerializeField] public float attackDamage;
         [SerializeField] ParticleSystem zombieBlood;
-        private float timeOfLastAttack = 0f;
+        private float timeOfLastIdle = 0f;
 
         private bool isDead = false;
         
@@ -48,9 +49,14 @@ namespace Zombie {
             }
 
             RotateToTarget();
-            if (audioSource.isPlaying == false) {
+            if (Time.time >= timeOfLastIdle + Random.Range(6, 16)) {
                 audioSource.PlayOneShot(zombieIdle);
+                timeOfLastIdle = Time.time;
             }
+            
+            
+            
+            
 
             if (distance <= _agent.stoppingDistance * 1.2) {
                 animator.SetFloat(Speed, 0);
