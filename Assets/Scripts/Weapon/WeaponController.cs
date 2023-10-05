@@ -133,7 +133,7 @@ public class WeaponController : MonoBehaviour
                 GetComponent<AudioSource>().pitch = fireRate;
                 GetComponent<AudioSource>().PlayOneShot(bulletSound);
             }
-            isShooting = isFullAuto;
+            
             
         }
     }
@@ -145,12 +145,8 @@ public class WeaponController : MonoBehaviour
         {
             GetComponent<AudioSource>().pitch = fireRate;
             GetComponent<AudioSource>().PlayOneShot(bulletSound);
-            
-            if( zombie != mockZombie)
-            {
-                zombie.TakeDamage(damage);
-            }
         }
+        zombie.TakeDamage(damage);
         isShooting = isFullAuto;
     }
 

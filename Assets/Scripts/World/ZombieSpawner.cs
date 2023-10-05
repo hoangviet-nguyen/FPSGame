@@ -123,7 +123,7 @@ namespace World
                 if (_currentWave >= _waveLength)
                 {
                     Debug.Log("All waves complete.");
-                    Endscreen endscreen = GameObject.Find("Endscreen").GetComponent<Endscreen>();
+                    Endscreen endscreen = GameObject.Find("EndscreenCanvas").GetComponent<Endscreen>();
                     endscreen.EndgameWin();
                     yield break;
                 }

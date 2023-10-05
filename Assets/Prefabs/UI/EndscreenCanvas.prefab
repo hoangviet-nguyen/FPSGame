@@ -1264,7 +1264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EndscreenUI: {fileID: 936621806878538077}
-  WinScreenUI: {fileID: 0}
+  WinScreenUI: {fileID: 7970778941331638782}
   weaponController: {fileID: 0}
 --- !u!1 &7970778941331638782
 GameObject:
