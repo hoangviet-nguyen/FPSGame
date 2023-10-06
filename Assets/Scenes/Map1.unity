@@ -20747,6 +20747,19 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &434311232 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4385138636463879170, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
+  m_PrefabInstance: {fileID: 1496292258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &434311234
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434311232}
+  m_Enabled: 1
 --- !u!1001 &434906991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50792,6 +50805,7 @@ GameObject:
   - component: {fileID: 1093972570}
   - component: {fileID: 1093972569}
   - component: {fileID: 1093972568}
+  - component: {fileID: 1093972571}
   m_Layer: 0
   m_Name: Supermarket
   m_TagString: Untagged
@@ -50889,6 +50903,102 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093972567}
   m_Mesh: {fileID: 4300000, guid: 6cf914cf2cbe4f24286192897aa5b11e, type: 3}
+--- !u!82 &1093972571
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093972567}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 85d9ce10089b6b44fa191f403fc494c3, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.2
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1094702102
 GameObject:
   m_ObjectHideFlags: 0
@@ -68517,13 +68627,17 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.517
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1860076999639468955, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8270083246882516683, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
       insertIndex: 1
       addedObject: {fileID: 1977927924}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4385138636463879170, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 434311234}
   m_SourcePrefab: {fileID: 100100000, guid: a2927f441d2ed8845ac181606bd70899, type: 3}
 --- !u!1001 &1496308362
 PrefabInstance:
