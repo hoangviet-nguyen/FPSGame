@@ -32,9 +32,27 @@ namespace Zombie {
         
         private void Start()
         {
-            health = 100;
             GetReferences();
             _zombieSpawner = GameObject.FindGameObjectWithTag("ZombieSpawner").GetComponent<ZombieSpawner>();
+            switch (GameValues.Difficulty)
+            {
+                case 1:
+                    health = health * 1f;
+                    attackDamage = attackDamage * 1f;
+                    break;
+                case 2:
+                    health = health * 1.5f;
+                    attackDamage = attackDamage * 1.5f;
+                    break;
+                case 3:
+                    health = health * 2f;
+                    attackDamage = attackDamage * 2f;
+                    break;
+                default:
+                    health = health * 1f;
+                    attackDamage = attackDamage * 1f;
+                    break;
+            }
         }
 
         private void Update() {
