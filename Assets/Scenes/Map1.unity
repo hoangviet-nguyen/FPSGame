@@ -108,8 +108,8 @@ NavMeshSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
-    agentSlope: 45
-    agentClimb: 0.4
+    agentSlope: 48.7
+    agentClimb: 0.7
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -22426,13 +22426,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 457079518}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.65585136, y: -0.26431164, z: 0.2643119, w: 0.65584874}
+  m_LocalPosition: {x: 0.848, y: -0.087, z: 0}
   m_LocalScale: {x: 89.10708, y: 89.107086, z: 89.107086}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 453266080}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -46.101, y: -90, z: 90}
 --- !u!64 &457079520
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -53469,9 +53469,9 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.13333334
+  m_VoxelSize: 0.033333335
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: a2710867806370d4bab1104f5c6f412e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ebf2288d350631d44a3b22b7fda3a015, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1144857650
 Transform:
@@ -60293,13 +60293,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279043496}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.6558695, y: -0.2642606, z: 0.2642606, w: 0.655872}
+  m_LocalPosition: {x: 1.016, y: 0.114, z: -0}
   m_LocalScale: {x: 89.10708, y: 89.107086, z: 89.107086}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 916323577}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -46.109, y: -90, z: 90}
 --- !u!64 &1279043498
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -94232,13 +94232,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2133341991}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 89.10708, y: 89.107086, z: 89.107086}
+  m_LocalRotation: {x: 0.29334804, y: 0.643384, z: 0.64339024, w: 0.2933478}
+  m_LocalPosition: {x: -1.76, y: -0.24, z: 0.1}
+  m_LocalScale: {x: 90.08, y: 89.107086, z: 156.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 327971056}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -40.979, y: 89.999, z: 90.001}
 --- !u!64 &2133341993
 MeshCollider:
   m_ObjectHideFlags: 0
