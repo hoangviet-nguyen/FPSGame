@@ -1,13 +1,12 @@
-
-
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 public class PlayerMotor : MonoBehaviour
 {
 
+    #region Variables
+    
     private CharacterController controller;
     [HideInInspector] public PlayerInput playerInput;
     public float speed;
@@ -32,10 +31,10 @@ public class PlayerMotor : MonoBehaviour
     
     [Header("Weapon")] 
     public List<WeaponController> weapons;
-    public float weaponAnimationSpeed;
     private int _currentWeapon;
-
-
+    
+    #endregion
+    
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -45,6 +44,7 @@ public class PlayerMotor : MonoBehaviour
         cameraRotation = cameraHolder.localRotation.eulerAngles;
         characterRotation = transform.localRotation.eulerAngles;
         
+        //Movement Init
         playerInput.Player.Jump.performed += ctx => Jump();
         playerInput.Player.SprintStart.performed += ctx => SprintPressed();
         playerInput.Player.SprintRelease.performed += ctx => SprintRelease();
@@ -58,8 +58,7 @@ public class PlayerMotor : MonoBehaviour
         weapons.ForEach(weapon => weapon.Initialize(this));
         weapons[0].IsFullAuto(false); weapons[1].IsFullAuto(true);
     }
-
-    // Update is called once per frame
+    
     private void FixedUpdate()
     {
         isGrounded = controller.isGrounded;
@@ -80,12 +79,10 @@ public class PlayerMotor : MonoBehaviour
     
     private void ProcessLook()
     {
-        
         cameraRotation.x += (-ySensivity * inputView.y * Time.deltaTime);
         cameraRotation.x = Mathf.Clamp(cameraRotation.x, -70, 80);
         characterRotation.y += (inputView.x * Time.deltaTime * xSensivity);
         transform.localRotation = Quaternion.Euler(characterRotation);
-        
         cameraHolder.localRotation = Quaternion.Euler(cameraRotation);
     }
 

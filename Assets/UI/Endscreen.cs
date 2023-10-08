@@ -1,9 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 public class Endscreen : MonoBehaviour
 {
@@ -15,8 +11,7 @@ public class Endscreen : MonoBehaviour
     {
         weaponController = GameObject.FindGameObjectsWithTag("Player")[0].GetComponentInChildren<WeaponController>();
     }
-
-
+    
     public void Endgame()
     {
 
@@ -37,8 +32,7 @@ public class Endscreen : MonoBehaviour
         Debug.Log("Quitting game...");
         Application.Quit();
     }
-
-
+    
     public void EndgameWin()
     {
         Cursor.lockState = CursorLockMode.None;

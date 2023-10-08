@@ -5,8 +5,6 @@ public abstract class Interactable : MonoBehaviour
     [SerializeField] private bool useEvents;
     private bool destroy;
     private string promptMessage;
-    
-
     public void BasicInteract(PlayerInteract player)
     {
         if (useEvents)

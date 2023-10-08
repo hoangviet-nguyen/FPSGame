@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Cursor = UnityEngine.Cursor;
@@ -7,12 +6,10 @@ namespace UI
 {
     public class MainMenuUILogic : MonoBehaviour
     {
-        private const string LoadoutSelectorName = "LoadoutSelector";
         private const string LevelSelectorName = "LevelSelector";
         private const string DifficultySelectorName = "DifficultySelector";
         private const string WaveLengthSelectorName = "LengthSelector";
         private const string StartButtonName = "StartButton";
-        private const string OptionsButtonName = "OptionButton";
         private const string QuitButtonName = "QuitButton";
 
         private UIDocument _mainMenuUIDocument;

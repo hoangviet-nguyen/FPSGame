@@ -1,18 +1,21 @@
-using TMPro;
 using UnityEngine;
 using Zombie;
 
 public class WeaponController : MonoBehaviour
 {
+    #region Variables
+    
     private PlayerMotor _motor;
-
     [Header("References")]
     public AudioClip bulletSound;
     public Transform bulletSpawn;
-    public Models.WeaponModel settings;
     private bool initialize;
-
-
+    
+    [Header("Weapon Sway")]
+    public float SwayAmount;
+    public float SwaySmoothing;
+    public float SwayResetSmooting;
+    
     private Vector3 _weaponRotation;
     private Vector3 _rotationVelocity;
 
@@ -23,34 +26,32 @@ public class WeaponController : MonoBehaviour
     [Header("Weapon Sway")] 
     public Transform weaponSwayObject;
 
-    [HideInInspector] public bool isAiming;
+    public bool isAiming;
     [Header("Sights")] 
     public Transform sightTarget;
     private Vector3 weaponSwayPosition;
 
-    [Header("Projectiles")] public float fireRate;
-    private float currentFireRate;
+    [Header("Projectiles")] 
+    public float fireRate;
     public bool isShooting;
     public bool hitmarkerShowing;
     public  GameObject Hitmarker;
     public float damage;
     private bool isFullAuto;
-    private ZombieController mockZombie;
+    
+    #endregion
     public void Initialize(PlayerMotor motor)
     {
         _motor = motor;
         initialize = true;
         isFullAuto = false;
-        mockZombie = new ZombieController();
     }
-
     private void Start()
     {
         _weaponRotation = transform.localRotation.eulerAngles;
         isShooting = false;
         isAiming = false;
     }
-
     private void Update()
     {
         if (!initialize)
@@ -89,26 +90,25 @@ public class WeaponController : MonoBehaviour
     {
         isAiming = false;
     }
-
-    #endregion
     
-
     private void CalculateWeaponSway()
     {
-        targetWeaponRotation.y += settings.SwayAmount * _motor.inputView.x * Time.deltaTime;
-        targetWeaponRotation.x += settings.SwayAmount * _motor.inputView.y * Time.deltaTime;
+        targetWeaponRotation.y += SwayAmount * _motor.inputView.x * Time.deltaTime;
+        targetWeaponRotation.x += SwayAmount * _motor.inputView.y * Time.deltaTime;
 
 
         targetWeaponRotation = Vector3.SmoothDamp(targetWeaponRotation, new Vector3(0, 0, 0),
             ref targetWeaponRotationVelocity,
-            settings.SwayResetSmooting);
+            SwayResetSmooting);
 
         _weaponRotation = Vector3.SmoothDamp(_weaponRotation, targetWeaponRotation, ref _rotationVelocity,
-            settings.SwaySmoothing);
+            SwaySmoothing);
         transform.localRotation = Quaternion.Euler(_weaponRotation);
 
     }
 
+    #endregion
+    
     #region Shooting
 
     private void CalculateBullet()

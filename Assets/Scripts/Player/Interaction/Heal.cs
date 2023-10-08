@@ -7,7 +7,7 @@ public class Heal : Interactable
     {
         setPromptMessage("Heal");
     }
-
+    
     protected override void Interact(PlayerInteract player)
     {
         StartCoroutine(HealPlayer(player.GetComponent<PlayerHealth>()));

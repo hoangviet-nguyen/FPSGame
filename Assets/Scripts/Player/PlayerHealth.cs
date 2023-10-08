@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +13,6 @@ public class PlayerHealth : MonoBehaviour
     public Image backHealthBar;
     public Endscreen endscreen;
     
-    // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
@@ -76,7 +72,6 @@ public class PlayerHealth : MonoBehaviour
     {
         health -= damage;
         lerpTimer = 0f;
-        //Debug.Log("damage");
     }
 
     public void HealDamage(float heal)

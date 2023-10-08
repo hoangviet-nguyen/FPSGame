@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using World;
@@ -8,6 +5,8 @@ using Random = UnityEngine.Random;
 
 namespace Zombie {
     public class ZombieController : MonoBehaviour {
+        #region Variables
+        
         private NavMeshAgent _agent;
         private Animator animator;
         [SerializeField] private PlayerHealth playerHealth;
@@ -30,6 +29,8 @@ namespace Zombie {
 
         private bool isDead = false;
         
+        #endregion
+        
         private void Start()
         {
             GetReferences();
@@ -37,20 +38,20 @@ namespace Zombie {
             switch (GameValues.Difficulty)
             {
                 case 1:
-                    health = health * 1f;
-                    attackDamage = attackDamage * 1f;
+                    health *= 1f;
+                    attackDamage *= 1f;
                     break;
                 case 2:
-                    health = health * 1.5f;
-                    attackDamage = attackDamage * 1.5f;
+                    health *= 1.5f;
+                    attackDamage *= 1.5f;
                     break;
                 case 3:
-                    health = health * 2f;
-                    attackDamage = attackDamage * 2f;
+                    health *= 2f;
+                    attackDamage *= 2f;
                     break;
                 default:
-                    health = health * 1f;
-                    attackDamage = attackDamage * 1f;
+                    health *= 1f;
+                    attackDamage *= 1f;
                     break;
             }
         }
@@ -72,10 +73,6 @@ namespace Zombie {
                 timeOfLastIdle = Time.time;
             }
             
-            
-            
-            
-
             if (distance <= _agent.stoppingDistance * 1.2) {
                 animator.SetFloat(Speed, 0);
                 if (Time.time >= _timeOfLastAttack + attackSpeed) {
@@ -85,12 +82,6 @@ namespace Zombie {
                     playerHealth.TakeDamage(attackDamage);
                   
                 }
-            }
-        }
-
-        private void DespawnAfterAnim(GameObject zombie) {
-            if (zombie != null) {
-                _zombieSpawner.DespawnZombie(this.gameObject);
             }
         }
 
@@ -108,7 +99,6 @@ namespace Zombie {
         }
 
         public void TakeDamage(float damage) {
-            Debug.Log(health);
             //dont play sound if audio not initialized
             if (audioSource != null)
             {

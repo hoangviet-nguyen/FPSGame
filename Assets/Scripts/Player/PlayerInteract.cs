@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Search;
 
 public class PlayerInteract : MonoBehaviour
 {
@@ -12,7 +9,6 @@ public class PlayerInteract : MonoBehaviour
     private PlayerUI playerUI;
     private PlayerMotor _motor;
     
-    // Start is called before the first frame update
     void Start()
     {
         playerUI = GetComponent<PlayerUI>();
@@ -20,7 +16,7 @@ public class PlayerInteract : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+   
     private void Update()
     {
         //Creating a ray at the center of the camera shooting outwards

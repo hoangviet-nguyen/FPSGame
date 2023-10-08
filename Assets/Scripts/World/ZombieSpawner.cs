@@ -23,7 +23,7 @@ namespace World
         private int _zombiesRemainingInWave;
         private int _waveLength = 5;
 
-        void Start()
+        private void Start()
         {
             zombiePrefab.GetComponent<ZombieController>().target = player;
             zombiePrefab2.GetComponent<ZombieController>().target = player;
@@ -69,13 +69,9 @@ namespace World
                     _waveLength = 5;
                     break;
             }
-            
-            Debug.Log("Difficulty: " + GameValues.Difficulty);
-            Debug.Log("Wave length: " + GameValues.WaveLength);
-            
         }
 
-        void AddSpawnPoints()
+       private void AddSpawnPoints()
         {
 
             GameObject[] spawnPointObjects = GameObject.FindGameObjectsWithTag("SpawnPoint");
@@ -86,7 +82,7 @@ namespace World
             }
         }
 
-        IEnumerator SpawnZombiesWithDelay()
+       private IEnumerator SpawnZombiesWithDelay()
         {
             while (true)
             {
@@ -132,7 +128,7 @@ namespace World
             }
         }
 
-        GameObject SpawnZombie(Vector3 spawnPosition)
+        private GameObject SpawnZombie(Vector3 spawnPosition)
         {
             GameObject zombie;
             int randomZombie = Random.Range(0, 3);

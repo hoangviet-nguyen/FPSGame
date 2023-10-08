@@ -1,16 +1,13 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    private static bool GameIsPaused;
     public GameObject pauseMenuUI;
-        public WeaponController weaponController;
-        public Slider mouseSensitivitySlider;
+    public WeaponController weaponController;
+    public Slider mouseSensitivitySlider;
 
     private void Start()
     {
@@ -21,8 +18,7 @@ public class PauseMenu : MonoBehaviour
         Resume();
 
     }
-
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -34,7 +30,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void Resume()
+    private void Resume()
     {
         GameValues.mousesensitivity = (int) mouseSensitivitySlider.value;
         pauseMenuUI.SetActive(false);
@@ -55,13 +51,13 @@ public class PauseMenu : MonoBehaviour
         
     }
     
-    public void LoadMenu()
+    private void LoadMenu()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenuScene");
     }
     
-    public void QuitGame()
+    private void QuitGame()
     {
         Debug.Log("Quitting game...");
         Application.Quit();
