@@ -31,9 +31,11 @@ Im Rahmen der Entwicklung haben wir einige Anpassungen an unseren ursprüngliche
  - **Zombie Types**: Es gibt 3 verschiedene Gegnertypen, die sich in ihrer Geschwindigkeit und ihrem Schaden unterscheiden. Die Gegnertypen werden zufällig generiert.
  - **Zombie Sounds**: Die Gegner haben verschiedene Sounds für das Laufen, Angreifen und Schaden nehmen.
  - **Zombie Animationen**: Die Gegner haben verschiedene Animationen für das Laufen und Angreifen.
-- **Zombie Death Animation**: Die Gegner haben eine Death Animation, wenn sie sterben.
+ - **Zombie Death Animation**: Die Gegner haben eine Death Animation, wenn sie sterben.
  - **Zombie Death Sound**: Die Gegner haben einen Sound, wenn sie sterben.
  - **medikit**: Der Spieler kann ein Medikit aufheben, um seine Gesundheit wiederherzustellen.
+ - **pause menu**: Der Spieler kann das Spiel pausieren und das Pausemenü öffnen, und mouse sensitivity ändern.
+ - **hitmarker**: Der Spieler erhält ein visuelles Feedback, wenn er einen Gegner trifft.
 
 ### Zukünftige mögliche Features
 
