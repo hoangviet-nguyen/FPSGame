@@ -18,37 +18,24 @@ public class PlayerHealth : MonoBehaviour
         health = maxHealth;
         endscreen = GameObject.Find("EndscreenCanvas").GetComponent<Endscreen>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         health = Mathf.Clamp(health, 0, maxHealth);
         UpdateHealthUI();
-        
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            TakeDamage(10);
-        }
-        else if (Input.GetKeyDown(KeyCode.M))
-        {
-            HealDamage(20);
-        }
-
         if (health <= 0)
         {
-            Debug.Log("Player dead");
-
             endscreen.Endgame();
         }
     }
 
     public void UpdateHealthUI()
     {
-        float fillFront = frontHealthBar.fillAmount;
-        float fillBack = backHealthBar.fillAmount;
-        float percentComplete = lerpTimer / chipSpeed;
-        float healthFraction = health / maxHealth;
-        bool takenDamage = fillBack > healthFraction;
+        var fillFront = frontHealthBar.fillAmount;
+        var fillBack = backHealthBar.fillAmount;
+        var percentComplete = lerpTimer / chipSpeed;
+        var healthFraction = health / maxHealth;
+        var takenDamage = fillBack > healthFraction;
         lerpTimer += Time.deltaTime;
         
         if (takenDamage)
