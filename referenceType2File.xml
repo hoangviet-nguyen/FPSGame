@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTypeDate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <TypeDate>
+    <guid>e9db6bd048ae5e34fb70ec8f58b27319</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/AssetCollector.cs</fileName>
+    <timeStamp>2023-10-08T20:28:40.0491814+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>e8ee8fc79c708d6469b5f98721e6330f</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/AssetReferenceCollection.cs</fileName>
+    <timeStamp>2023-10-08T20:28:40.0512037+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>3cf5ad73bf113194784f8b5a9f3fbc8f</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/ClassReferenceCollection.cs</fileName>
+    <timeStamp>2023-10-08T20:28:40.0512037+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>925c6c9aec2b71943aff272fbaac6ba1</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/CollectionData.cs</fileName>
+    <timeStamp>2023-10-08T20:28:40.0532394+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>1a292f82c04a1d04a951b34227ccb6a0</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/FindUnusedAssetsWindow.cs</fileName>
+    <timeStamp>2023-10-08T20:28:40.0532394+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>96c83b2f426c23843921c6202ff14fd3</guid>
+    <fileName>Assets/Plugins/UnitySweeper/Editor/ShaderReferenceCollection.cs</fileName>
+    <timeStamp>2023-10-08T20:28:40.0532394+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>bba7e80207de40247b4028aaeb8cd4e8</guid>
+    <fileName>Assets/Input/PlayerInput.cs</fileName>
+    <timeStamp>2023-10-04T18:14:27.104904+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>375bffbd30fab5e49bcd298f3cc693e5</guid>
+    <fileName>Assets/Scripts/GameValues.cs</fileName>
+    <timeStamp>2023-10-08T13:20:13.3330526+02:00</timeStamp>
+    <typeFullName>
+      <string>GameValues</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>31a0057bf5b8b024ca4e488ffb46398c</guid>
+    <fileName>Assets/UI/Endscreen.cs</fileName>
+    <timeStamp>2023-10-08T13:20:13.3434654+02:00</timeStamp>
+    <typeFullName>
+      <string>Endscreen</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9452c17735e1e1d4c8b6ba7ce144188f</guid>
+    <fileName>Assets/UI/PauseMenu.cs</fileName>
+    <timeStamp>2023-10-08T13:20:13.327712+02:00</timeStamp>
+    <typeFullName>
+      <string>PauseMenu</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>b5cd57c2d2adb9145a574c358fd91c8d</guid>
+    <fileName>Assets/Scripts/Player/PlayerHealth.cs</fileName>
+    <timeStamp>2023-10-08T13:42:51.0222955+02:00</timeStamp>
+    <typeFullName>
+      <string>PlayerHealth</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>a702dd936424629499b4f0d623397009</guid>
+    <fileName>Assets/Scripts/Player/PlayerInteract.cs</fileName>
+    <timeStamp>2023-10-08T13:06:00.9853427+02:00</timeStamp>
+    <typeFullName>
+      <string>PlayerInteract</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>74c45a0ef3f883c4297db5773bb8c858</guid>
+    <fileName>Assets/Scripts/Player/PlayerMotor.cs</fileName>
+    <timeStamp>2023-10-08T13:04:48.3868356+02:00</timeStamp>
+    <typeFullName>
+      <string>PlayerMotor</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>bdf499b26dc7ee745bd7d9c386f0ef7e</guid>
+    <fileName>Assets/Scripts/Player/PlayerUI.cs</fileName>
+    <timeStamp>2023-10-08T13:15:17.1963106+02:00</timeStamp>
+    <typeFullName>
+      <string>PlayerUI</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9a039bf1fc6f30543945de9f5da4ac8b</guid>
+    <fileName>Assets/Scripts/UI/MainMenuUILogic.cs</fileName>
+    <timeStamp>2023-10-08T13:15:17.2239678+02:00</timeStamp>
+    <typeFullName>
+      <string>UI.MainMenuUILogic</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>db175dae517242e4f94a5039b1066330</guid>
+    <fileName>Assets/Scripts/Weapon/WeaponController.cs</fileName>
+    <timeStamp>2023-10-08T13:32:39.1990469+02:00</timeStamp>
+    <typeFullName>
+      <string>WeaponController</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>1bfd4f29217a5824293cfe951b56688c</guid>
+    <fileName>Assets/Scripts/World/FogSpawner.cs</fileName>
+    <timeStamp>2023-10-08T13:15:17.2018248+02:00</timeStamp>
+    <typeFullName>
+      <string>FogSpawner</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>61b14d74b6fdd774589ad00a7204ce48</guid>
+    <fileName>Assets/Scripts/World/ZombieSpawner.cs</fileName>
+    <timeStamp>2023-10-08T20:13:01.2197278+02:00</timeStamp>
+    <typeFullName>
+      <string>World.ZombieSpawner</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>fb4f2ef9c6d0f814a995cf2fb2c734bb</guid>
+    <fileName>Assets/Scripts/Zombie/ZombieController.cs</fileName>
+    <timeStamp>2023-10-08T20:13:01.222413+02:00</timeStamp>
+    <typeFullName>
+      <string>Zombie.ZombieController</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>b7881855ad9fed04091442390adafca1</guid>
+    <fileName>Assets/Scripts/Player/Interaction/Heal.cs</fileName>
+    <timeStamp>2023-10-08T13:03:09.6210863+02:00</timeStamp>
+    <typeFullName>
+      <string>Heal</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>507758c80ab95414ea75c822e7cb3160</guid>
+    <fileName>Assets/Scripts/Player/Interaction/Interactable.cs</fileName>
+    <timeStamp>2023-10-08T13:15:17.2184392+02:00</timeStamp>
+    <typeFullName>
+      <string>Interactable</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>bddd06c5e7d54893be62497d1a21179b</guid>
+    <fileName>Assets/Scripts/Player/Interaction/InteractionEvent.cs</fileName>
+    <timeStamp>2023-10-08T13:07:40.4658073+02:00</timeStamp>
+    <typeFullName>
+      <string>InteractionEvent</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>544fb994b587757419aad57fa3261472</guid>
+    <fileName>Assets/External Imports/BrokenVector/LowPolyDungeon/Demo Scenes/MouseCamLook.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.7506708+02:00</timeStamp>
+    <typeFullName>
+      <string>MouseCamLook</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>e478c0cc6d326d0428f3ef40bdce5aca</guid>
+    <fileName>Assets/External Imports/BrokenVector/LowPolyDungeon/Demo Scenes/PlayerMovement.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.7562011+02:00</timeStamp>
+    <typeFullName>
+      <string>PlayerMovement</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>84271128a230d244194f1f382c0ec0c5</guid>
+    <fileName>Assets/External Imports/BrokenVector/LowPolyDungeon/Demo Scenes/ScreenshotMaker.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.7572014+02:00</timeStamp>
+    <typeFullName>
+      <string>ScreenshotMaker</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>a4635984819fcf1439f0f192f8af8181</guid>
+    <fileName>Assets/External Imports/polyperfect/Poly Halloween/- Scripts/MouseLook.cs</fileName>
+    <timeStamp>2023-10-08T20:27:27.079055+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>cd6adbe0a3fd0a04cbec28c502122192</guid>
+    <fileName>Assets/External Imports/polyperfect/Poly Halloween/- Scripts/PlayerMovement.cs</fileName>
+    <timeStamp>2023-10-08T20:27:27.0820613+02:00</timeStamp>
+    <typeFullName>
+      <string>PlayerMovement</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>4c849229eea847799633af02d5a21643</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Scripts/SlenderExample.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0160981+02:00</timeStamp>
+    <typeFullName>
+      <string>SlenderExample</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>04b0ca73520e418d81b55d642dfa118a</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Scripts/TDControl.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0189609+02:00</timeStamp>
+    <typeFullName>
+      <string>TDControl</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>35750742851f45679bd5c157449d02fd</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Editor/ImageEffects/AntialiasingEditor.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0468871+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>38b613d9882149d5bea4e70215cfb1a6</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Editor/ImageEffects/BloomAndFlaresEditor.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0495853+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>17d3f1d502654167abc2112b69c71bb3</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Editor/ImageEffects/BloomEditor.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0526323+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>f7980c2ce243435abba56fccfef37c11</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Editor/ImageEffects/CameraMotionBlurEditor.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0549747+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>57da945954db4d8fb3afe010f6295cf8</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Editor/ImageEffects/ColorCorrectionCurvesEditor.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0574984+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>543b847d4ff54b1999e8511852d3005a</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Editor/ImageEffects/ColorCorrectionLookupEditor.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0594994+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>fdb2009c85994a27ad8db61f2d2b1d1a</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Editor/ImageEffects/CreaseShadingEditor.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0615163+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>0809da9dce58465ea7c3b921bd982355</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Editor/ImageEffects/DepthOfFieldDeprecatedEditor.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0636628+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>006fd54bfcee421a94f942e893f69530</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Editor/ImageEffects/DepthOfFieldEditor.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0652582+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>4035623d16a54d23a90b7c436650d52f</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Editor/ImageEffects/EdgeDetectionEditor.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0673696+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>ab640b90397e46c59ba25e52e7647199</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Editor/ImageEffects/NoiseAndGrainEditor.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0698251+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>59d52a4e580244d49a472797be27e04e</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Editor/ImageEffects/SunShaftsEditor.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0713401+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>417414ab2f654856a8eb6879720992ae</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Editor/ImageEffects/TonemappingEditor.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0733751+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>ba6aeab87a87454685317a32465edab0</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Editor/ImageEffects/VignetteAndChromaticAberrationEditor.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0744134+02:00</timeStamp>
+    <typeFullName />
+  </TypeDate>
+  <TypeDate>
+    <guid>cf858ff7b94947c281f3bdf82e698621</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/Antialiasing.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0807984+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.AAMode</string>
+      <string>UnityStandardAssets.ImageEffects.Antialiasing</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>327182dae1394c35a16bff0dc3b50cd7</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/Bloom.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0823226+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.Bloom</string>
+      <string>UnityStandardAssets.ImageEffects.Bloom+LensFlareStyle</string>
+      <string>UnityStandardAssets.ImageEffects.Bloom+TweakMode</string>
+      <string>UnityStandardAssets.ImageEffects.Bloom+HDRBloomMode</string>
+      <string>UnityStandardAssets.ImageEffects.Bloom+BloomScreenBlendMode</string>
+      <string>UnityStandardAssets.ImageEffects.Bloom+BloomQuality</string>
+      <string>UnityStandardAssets.ImageEffects.HDRBloomMode</string>
+      <string>UnityStandardAssets.ImageEffects.BloomScreenBlendMode</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>9cd6aa80ad9c4d4fbef45119a429a5cf</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/BloomAndFlares.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0853377+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.LensflareStyle34</string>
+      <string>UnityStandardAssets.ImageEffects.TweakMode34</string>
+      <string>UnityStandardAssets.ImageEffects.HDRBloomMode</string>
+      <string>UnityStandardAssets.ImageEffects.BloomScreenBlendMode</string>
+      <string>UnityStandardAssets.ImageEffects.BloomAndFlares</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>4c2bbcbdb1ac427ca8d82670fb146bcb</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/BloomOptimized.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0868692+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.BloomOptimized</string>
+      <string>UnityStandardAssets.ImageEffects.BloomOptimized+Resolution</string>
+      <string>UnityStandardAssets.ImageEffects.BloomOptimized+BlurType</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>cc5a57156d784fabb22a94c54a237c4d</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/Blur.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0878695+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.Blur</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>69c12e79a585406181ab150dd9a62732</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/BlurOptimized.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0904319+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.BlurOptimized</string>
+      <string>UnityStandardAssets.ImageEffects.BlurOptimized+BlurType</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>160439147c5a4d07bbf824255fb97feb</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/CameraMotionBlur.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0924484+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.CameraMotionBlur</string>
+      <string>UnityStandardAssets.ImageEffects.CameraMotionBlur+MotionBlurFilter</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>a4ca9b3a6d434feb8adad46e65443f9d</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/ColorCorrectionCurves.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0939785+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.ColorCorrectionCurves</string>
+      <string>UnityStandardAssets.ImageEffects.ColorCorrectionCurves+ColorCorrectionMode</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>4a1c9599b8524250b7e9d5b11ca0a9aa</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/ColorCorrectionLookup.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0954939+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.ColorCorrectionLookup</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d1a6252074a642baaf61fe189687e1f7</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/ColorCorrectionRamp.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.0985063+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.ColorCorrectionRamp</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>5723635ebc714d5f8ba64d886821c07e</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/ContrastEnhance.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1000171+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.ContrastEnhance</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>4278f04d5a434966a4d47419d40adcef</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/ContrastStretch.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1012594+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.ContrastStretch</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>cf3745b033614b0d95be8c1c22cf31d3</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/CreaseShading.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1027696+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.CreaseShading</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>4bf40dc361d241f6b0ce012df6440928</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/DepthOfField.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1037817+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.DepthOfField</string>
+      <string>UnityStandardAssets.ImageEffects.DepthOfField+BlurType</string>
+      <string>UnityStandardAssets.ImageEffects.DepthOfField+BlurSampleCount</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c5d8cc3f712c4cd5833720b861c1c461</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/DepthOfFieldDeprecated.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1058509+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.DepthOfFieldDeprecated</string>
+      <string>UnityStandardAssets.ImageEffects.DepthOfFieldDeprecated+Dof34QualitySetting</string>
+      <string>UnityStandardAssets.ImageEffects.DepthOfFieldDeprecated+DofResolution</string>
+      <string>UnityStandardAssets.ImageEffects.DepthOfFieldDeprecated+DofBlurriness</string>
+      <string>UnityStandardAssets.ImageEffects.DepthOfFieldDeprecated+BokehDestination</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>a9aba16ed7984954aa37f8084098130e</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/EdgeDetection.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.106921+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.EdgeDetection</string>
+      <string>UnityStandardAssets.ImageEffects.EdgeDetection+EdgeDetectMode</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>e96bf2bd6e4a41b3ae41fa674269a3f2</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/Fisheye.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1093381+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.Fisheye</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>bcf7afb4ab2b41d2bc85db6109c3df14</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/GlobalFog.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1098594+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.GlobalFog</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d48a1e38bc754e7993b893fa1ebc17e9</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/Grayscale.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1122711+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.Grayscale</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>f34e0f5182d54fd99fff983c41c4772d</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/ImageEffectBase.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1143094+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.ImageEffectBase</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d6dd7028cd1d4104aca4fb178733704c</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/ImageEffects.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1163294+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.ImageEffects</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>c43352b4d70643de8a61da58c9f40162</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/MotionBlur.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1173289+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.MotionBlur</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>f27b2e44056a4029b8c372e7f680f8e9</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/NoiseAndGrain.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1193329+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.NoiseAndGrain</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>99b3865006fc488c949e2f8c1e527c90</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/NoiseAndScratches.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1208519+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.NoiseAndScratches</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>0855d1ceddc447f8a305368128f3198a</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/PostEffectsBase.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1228537+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.PostEffectsBase</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>08c91621bec046ceb0cc181af08434cd</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/PostEffectsHelper.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1243646+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.PostEffectsHelper</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>966506bc399541c997779e698a2842ee</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/Quads.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1253753+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.Quads</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>f27cc58a4e4942c191479c92c5a043f2</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/ScreenOverlay.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1273827+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.ScreenOverlay</string>
+      <string>UnityStandardAssets.ImageEffects.ScreenOverlay+OverlayBlendMode</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>4228e16a36f44be3b185632546a6964f</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/ScreenSpaceAmbientObscurance.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1293859+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.ScreenSpaceAmbientObscurance</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>334220a0270f4bbbb0d5630673a20786</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/ScreenSpaceAmbientOcclusion.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1309069+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.ScreenSpaceAmbientOcclusion</string>
+      <string>UnityStandardAssets.ImageEffects.ScreenSpaceAmbientOcclusion+SSAOSamples</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>43baf91cf7ea4471b340e79bef452812</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/SepiaTone.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1319072+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.SepiaTone</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>8cb73c635e2d4c229a6ab9b5f41b81b7</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/SunShafts.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1329028+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.SunShafts</string>
+      <string>UnityStandardAssets.ImageEffects.SunShafts+SunShaftsResolution</string>
+      <string>UnityStandardAssets.ImageEffects.SunShafts+ShaftsScreenBlendMode</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>eab8872486c345b89c8b74eb1b4bd04a</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/TiltShift.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1369631+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.TiltShift</string>
+      <string>UnityStandardAssets.ImageEffects.TiltShift+TiltShiftMode</string>
+      <string>UnityStandardAssets.ImageEffects.TiltShift+TiltShiftQuality</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>2b1bcc46fdee4be8bfca28edb16056a9</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/Tonemapping.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1391374+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.Tonemapping</string>
+      <string>UnityStandardAssets.ImageEffects.Tonemapping+TonemapperType</string>
+      <string>UnityStandardAssets.ImageEffects.Tonemapping+AdaptiveTexSize</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d5fabb4213344fecb4952ae8a0be9054</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/Triangles.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1411478+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.Triangles</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>22ceb4522c7343be83424dc181eec97a</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/Twirl.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1431468+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.Twirl</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>d30856bbe84e4506bb487e3ad159a370</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/VignetteAndChromaticAberration.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1446579+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.VignetteAndChromaticAberration</string>
+      <string>UnityStandardAssets.ImageEffects.VignetteAndChromaticAberration+AberrationMode</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+  <TypeDate>
+    <guid>4d2924fea4604f8c8cbd2f1d3c412b86</guid>
+    <fileName>Assets/External Imports/#NVJOB Slender/Example/Environment/Standard Assets/Effects/ImageEffects/Scripts/Vortex.cs</fileName>
+    <timeStamp>2023-10-08T20:27:19.1478717+02:00</timeStamp>
+    <typeFullName>
+      <string>UnityStandardAssets.ImageEffects.Vortex</string>
+    </typeFullName>
+    <assembly>Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+  </TypeDate>
+</ArrayOfTypeDate>
