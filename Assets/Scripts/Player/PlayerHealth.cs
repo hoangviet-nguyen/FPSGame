@@ -84,4 +84,9 @@ public class PlayerHealth : MonoBehaviour
         health += heal;
         lerpTimer = 0f;
     }
+
+    public float getHealth()
+    {
+        return health;
+    }
 }

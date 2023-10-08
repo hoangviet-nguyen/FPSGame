@@ -1,22 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
-
 public abstract class Interactable : MonoBehaviour
 {
     [SerializeField] private bool useEvents;
     private bool destroy;
-    public string promptMessage;
+    private string promptMessage;
+    
 
-    public void BasicInteract()
+    public void BasicInteract(PlayerInteract player)
     {
         if (useEvents)
             GetComponent<InteractionEvent>().OnInteract.Invoke();
-        Interact();
+        Interact(player);
     }
 
-    protected virtual void Interact()
+    protected virtual void Interact(PlayerInteract player)
     {
         //This is a template function so here wont be any code
     }
@@ -34,5 +32,15 @@ public abstract class Interactable : MonoBehaviour
     public bool Destroy()
     {
         return destroy;
+    }
+
+    public void setPromptMessage(string message)
+    {
+        promptMessage = message;
+    }
+
+    public string getPromptmessage()
+    {
+        return promptMessage;
     }
 }
