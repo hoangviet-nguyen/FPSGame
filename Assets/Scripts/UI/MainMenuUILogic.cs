@@ -42,12 +42,6 @@ namespace UI
                 UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
             };
 
-            _mainMenuUIDocument.rootVisualElement.Q<Button>(OptionsButtonName).clicked += () =>
-            {
-                Debug.Log("EditButton clicked");
-                UnityEngine.SceneManagement.SceneManager.LoadScene(2);
-            };
-
             _mainMenuUIDocument.rootVisualElement.Q<Button>(QuitButtonName).clicked += () =>
             {
                 Debug.Log("QuitButton clicked");
