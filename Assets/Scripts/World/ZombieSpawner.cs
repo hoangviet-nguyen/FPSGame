@@ -31,7 +31,6 @@ namespace World
             AddSpawnPoints();
             _zombiesRemainingInWave = _zombiesPerWave;
             StartCoroutine(SpawnZombiesWithDelay());
-            waveText.text = "Wave " + _currentWave;
 
             switch (GameValues.Difficulty)
             {
@@ -86,18 +85,21 @@ namespace World
         {
             while (true)
             {
-                if (_zombiesRemainingInWave <= 0)
+                if (_zombiesRemainingInWave <= 0 && spawnedZombies.Count == 0)
                 {
                     //wait 5 seconds before starting the next wave
                     yield return new WaitForSeconds(5f);
-                    _currentWave++;
-                    _zombiesPerWave = _currentWave + 5;
-                    waveText.text = "Wave " + _currentWave + "\n (" + spawnedZombies.Count + " alive)";
-                    _zombiesRemainingInWave = _zombiesPerWave;
-                    Debug.Log("Wave " + _currentWave + " started!");
+                    if (_currentWave != _waveLength){
+                        _currentWave++;
+                        _zombiesPerWave = _zombiesPerWave + 5;
+                        waveText.text = "Wave " + _currentWave + "\n (" + spawnedZombies.Count + " alive)";
+                        _zombiesRemainingInWave = _zombiesPerWave;
+                        Debug.Log("Wave " + _currentWave + " started!");
+                    }
+
                 }
 
-                if (spawnedZombies.Count < _maxZombiesAlive)
+                if (spawnedZombies.Count < _maxZombiesAlive && (_currentWave <= _waveLength))
                 {
                     Debug.Log("Spawning a zombie...");
                     List<Vector3> closestSpawnPoints = new List<Vector3>(_spawnPoints); // Create a copy of the spawn points list
@@ -116,7 +118,7 @@ namespace World
                     }
                 }
 
-                if (_currentWave >= _waveLength)
+                if (_currentWave >= _waveLength && spawnedZombies.Count == 0)
                 {
                     Debug.Log("All waves complete.");
                     Endscreen endscreen = GameObject.Find("EndscreenCanvas").GetComponent<Endscreen>();
@@ -150,6 +152,7 @@ namespace World
             
             spawnedZombies.Add(zombie);
             Debug.Log("Spawned a zombie at " + spawnPosition + "!");
+            waveText.text = "Wave " + _currentWave + "\n (" + spawnedZombies.Count + " alive)";
             return zombie;
         }
 
