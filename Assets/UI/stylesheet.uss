@@ -1,0 +1,38 @@
+DropdownField {
+    width: 100%;
+}
+
+DropdownField > Label {
+    width: 50%;
+}
+
+DropdownField > VisualElement > PopupTextElement {
+    -unity-text-align: middle-right;
+}
+
+DropdownField > VisualElement > VisualElement {
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(255, 255, 255);
+    -unity-text-outline-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    visibility: visible;
+    -unity-background-scale-mode: stretch-to-fill;
+}
+
+DropdownField > VisualElement {
+    background-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+    -unity-background-image-tint-color: rgba(0, 0, 0, 0.35);
+    color: rgb(255, 255, 255);
+}
+
+Button > hover {
+    background-color: rgba(255, 255, 255, 0);
+    border-left-color: rgba(255, 255, 255, 0);
+    border-right-color: rgba(255, 255, 255, 0);
+    border-top-color: rgba(255, 255, 255, 0);
+    border-bottom-color: rgba(255, 255, 255, 0);
+}
