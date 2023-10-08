@@ -84,6 +84,12 @@ namespace Zombie {
                 }
             }
         }
+        
+        private void DespawnAfterAnim(GameObject zombie) {
+            if (zombie != null) {
+                _zombieSpawner.DespawnZombie(this.gameObject);
+            }
+        }
 
         private void RotateToTarget() {
             Vector3 direction = (target.position - transform.position).normalized;
