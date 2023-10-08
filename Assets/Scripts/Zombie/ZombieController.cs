@@ -8,14 +8,14 @@ namespace Zombie {
         #region Variables
         
         private NavMeshAgent _agent;
-        private Animator animator;
+        private Animator _animator;
         [SerializeField] private PlayerHealth playerHealth;
         [SerializeField] internal Transform target;
         [SerializeField] AudioClip zombieAttack;
         [SerializeField] AudioClip zombieIdle;
         [SerializeField] AudioClip zombieDamage;
-        private AudioSource audioSource;
-        private float _timeOfLastAttack = 0f;
+        private AudioSource _audioSource;
+        private float _timeOfLastAttack;
         private static readonly int Speed = Animator.StringToHash("Speed");
         private static readonly int Attack = Animator.StringToHash("Attack");
         private ZombieSpawner _zombieSpawner;
@@ -24,10 +24,7 @@ namespace Zombie {
         [SerializeField] public float health;
         [SerializeField] public float attackSpeed;
         [SerializeField] public float attackDamage;
-        [SerializeField] ParticleSystem zombieBlood;
-        private float timeOfLastIdle = 0f;
-
-        private bool isDead = false;
+        private float _timeOfLastIdle;
         
         #endregion
         
@@ -58,31 +55,28 @@ namespace Zombie {
 
         private void Update() {
             _agent.SetDestination(target.position);
-            animator.SetFloat(Speed, 1, 0.3f, Time.deltaTime);
-            float distance = Vector3.Distance(transform.position, target.position);
+            _animator.SetFloat(Speed, 1, 0.3f, Time.deltaTime);
+            var distance = Vector3.Distance(transform.position, target.position);
 
             if (health <= 0) {
                 _agent.isStopped = true;
-                animator.SetTrigger(Die1);
+                _animator.SetTrigger(Die1);
                 return;
             }
 
             RotateToTarget();
-            if (Time.time >= timeOfLastIdle + Random.Range(6, 16)) {
-                audioSource.PlayOneShot(zombieIdle);
-                timeOfLastIdle = Time.time;
+            if (Time.time >= _timeOfLastIdle + Random.Range(6, 16)) {
+                _audioSource.PlayOneShot(zombieIdle);
+                _timeOfLastIdle = Time.time;
             }
-            
-            if (distance <= _agent.stoppingDistance * 1.2) {
-                animator.SetFloat(Speed, 0);
-                if (Time.time >= _timeOfLastAttack + attackSpeed) {
-                    audioSource.PlayOneShot(zombieAttack);
-                    _timeOfLastAttack = Time.time;
-                    animator.SetTrigger(Attack);
-                    playerHealth.TakeDamage(attackDamage);
-                  
-                }
-            }
+
+            if (!(distance <= _agent.stoppingDistance * 1.2)) return;
+            _animator.SetFloat(Speed, 0);
+            if (!(Time.time >= _timeOfLastAttack + attackSpeed)) return;
+            _audioSource.PlayOneShot(zombieAttack);
+            _timeOfLastAttack = Time.time;
+            _animator.SetTrigger(Attack);
+            playerHealth.TakeDamage(attackDamage);
         }
         
         private void DespawnAfterAnim(GameObject zombie) {
@@ -92,23 +86,23 @@ namespace Zombie {
         }
 
         private void RotateToTarget() {
-            Vector3 direction = (target.position - transform.position).normalized;
-            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            var direction = (target.position - transform.position).normalized;
+            var lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
         }
 
         private void GetReferences() {
             _agent = GetComponent<NavMeshAgent>();
-            animator = GetComponent<Animator>();
+            _animator = GetComponent<Animator>();
             playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-            audioSource = GetComponent<AudioSource>();
+            _audioSource = GetComponent<AudioSource>();
         }
 
         public void TakeDamage(float damage) {
             //dont play sound if audio not initialized
-            if (audioSource != null)
+            if (_audioSource != null)
             {
-                audioSource.PlayOneShot(zombieDamage);
+                _audioSource.PlayOneShot(zombieDamage);
             }
             
             health -= damage;
