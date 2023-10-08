@@ -35,18 +35,11 @@ namespace UI
             {
                 Debug.Log("StartButton clicked");
                 int sceneIndex = _mainMenuUIDocument.rootVisualElement.Q<DropdownField>(LevelSelectorName).index + 1;
-                GameValues.Loadout =
-                    _mainMenuUIDocument.rootVisualElement.Q<DropdownField>(LoadoutSelectorName).index+1;
+                
                 GameValues.Difficulty = _mainMenuUIDocument.rootVisualElement.Q<DropdownField>(DifficultySelectorName)
                     .index + 1;
                 GameValues.WaveLength = _mainMenuUIDocument.rootVisualElement.Q<DropdownField>(WaveLengthSelectorName).index + 1;
                 UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
-            };
-
-            _mainMenuUIDocument.rootVisualElement.Q<Button>(OptionsButtonName).clicked += () =>
-            {
-                Debug.Log("EditButton clicked");
-                UnityEngine.SceneManagement.SceneManager.LoadScene(2);
             };
 
             _mainMenuUIDocument.rootVisualElement.Q<Button>(QuitButtonName).clicked += () =>

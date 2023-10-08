@@ -18,7 +18,7 @@ Gegner Knockback wenn getroffen ✔
 
 verschiedene Gegner Types mit besondere Eigenschaften ✔
 
-Sounds für Schüsse✔, Treffer und Tod.
+Sounds für Schüsse✔, Treffer✔ und Tod✔.
 
 BGM für Menü und Spiel. ✔
 
@@ -29,9 +29,9 @@ Spieler startet mit einem Loadout✔ ~~(Der Spieler kann Waffen kaufen und diese
 
 Scenes:
 MainMenu ✔
-Map1
+Map1 (✔)
 Map2 ✔
-Map3
+Map3 (✔)
 Overlay/ESCMenu ✔
 Endscreen ✔
 
