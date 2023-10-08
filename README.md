@@ -1,4 +1,4 @@
-﻿
+﻿# Waves of The Undead
 
 ## Beschreibung des Spiels
 Dieses Spiel ist ein spannender 3D First-Person-Shooter, bei dem du gegen Horden von Zombies antreten musst, um zu überleben. Deine Aufgabe ist es, so viele Wellen von Gegnern wie möglich zu überstehen, während sich die Anzahl und Stärke der Zombies mit jeder Welle erhöht. Du kannst verschiedene Waffen verwenden, um die Zombies auf Distanz zu halten und deine Überlebenschancen zu erhöhen. Sei auf der Hut, denn die Zombies werden immer gefährlicher!
