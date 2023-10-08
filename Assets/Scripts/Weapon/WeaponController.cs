@@ -122,8 +122,7 @@ public class WeaponController : MonoBehaviour
                 var currentZombie = hitInfo.collider.GetComponent<ZombieController>();
                 if (isShooting)
                 {
-                    ShowHitmarker();
-                    Shoot(currentZombie, isFullAuto);
+                    Shoot(currentZombie);
                 }
         }
         else if (isShooting)
@@ -138,10 +137,11 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    private void Shoot(ZombieController zombie, bool isFullAuto)
+    private void Shoot(ZombieController zombie)
     {
         if (!GetComponent<AudioSource>().isPlaying)
         {
+            ShowHitmarker();
             GetComponent<AudioSource>().pitch = fireRate;
             GetComponent<AudioSource>().PlayOneShot(bulletSound);
         }
