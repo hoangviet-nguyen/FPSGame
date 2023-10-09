@@ -24,6 +24,8 @@ Im Rahmen der Entwicklung haben wir einige Anpassungen an unseren ursprüngliche
 
 - ZombieSpawner Script ist umfangreich und skaliert die zombies mit den verschiedenen schwierigkeitsgraden.
 
+- Schüsse der Vollautomatische Waffe funktionieren momentan nur wenn mann die Maus bewegt oder der Charackter sich bewegt
+
 
 ### Zusätzliche Features die während der Entwicklung hinzugefügt wurden:
 
@@ -40,7 +42,6 @@ Im Rahmen der Entwicklung haben wir einige Anpassungen an unseren ursprüngliche
 ### Zukünftige mögliche Features
 
 - **Zombie Health Bar**: Die Gegner haben eine Health Bar, die über ihrem Kopf angezeigt wird.
-- **Zombie Spawn Animation**: Die Gegner werden mit einer Spawn Animation generiert.
 - **Zombie Spawn Animation**: Die Gegner werden mit einer Spawn Animation generiert.
 - **Blood Particles**: Wenn ein Gegner getroffen wird, werden Blutpartikel generiert.
 - **Weapon Reload Animation/Sound**: Die Waffe hat eine Nachladeanimation.
